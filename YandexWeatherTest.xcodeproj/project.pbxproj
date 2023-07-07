@@ -13,9 +13,11 @@
 		1ABE62F92A57DF43007E83AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62F72A57DF43007E83AD /* Main.storyboard */; };
 		1ABE62FB2A57DF45007E83AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62FA2A57DF45007E83AD /* Assets.xcassets */; };
 		1ABE62FE2A57DF45007E83AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62FC2A57DF45007E83AD /* LaunchScreen.storyboard */; };
+		420D6839028CA152EA85BF7D /* Pods_YandexWeatherTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A803757F4FB1F260F576925 /* Pods_YandexWeatherTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0974F78AD1C78DA1FB673CF3 /* Pods-YandexWeatherTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexWeatherTest.release.xcconfig"; path = "Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest.release.xcconfig"; sourceTree = "<group>"; };
 		1ABE62EE2A57DF43007E83AD /* YandexWeatherTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexWeatherTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABE62F12A57DF43007E83AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ABE62F32A57DF43007E83AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		1ABE62FA2A57DF45007E83AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ABE62FD2A57DF45007E83AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ABE62FF2A57DF45007E83AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A803757F4FB1F260F576925 /* Pods_YandexWeatherTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YandexWeatherTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB55C857B15052373529C349 /* Pods-YandexWeatherTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexWeatherTest.debug.xcconfig"; path = "Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420D6839028CA152EA85BF7D /* Pods_YandexWeatherTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 				1ABE63062A57E567007E83AD /* Resources */,
 				1ABE63052A57E556007E83AD /* SupportingFiles */,
 				1ABE62EF2A57DF43007E83AD /* Products */,
+				B897C044453DED32EE3E2C30 /* Pods */,
+				ED5FE12E47B16C6D74B05F80 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +106,24 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
+		B897C044453DED32EE3E2C30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB55C857B15052373529C349 /* Pods-YandexWeatherTest.debug.xcconfig */,
+				0974F78AD1C78DA1FB673CF3 /* Pods-YandexWeatherTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED5FE12E47B16C6D74B05F80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A803757F4FB1F260F576925 /* Pods_YandexWeatherTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ABE63022A57DF45007E83AD /* Build configuration list for PBXNativeTarget "YandexWeatherTest" */;
 			buildPhases = (
+				3A1134C8401EE96382ED6C09 /* [CP] Check Pods Manifest.lock */,
 				1ABE62EA2A57DF43007E83AD /* Sources */,
 				1ABE62EB2A57DF43007E83AD /* Frameworks */,
 				1ABE62EC2A57DF43007E83AD /* Resources */,
+				CF4128261D4AC74F8CFA5248 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,6 +191,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A1134C8401EE96382ED6C09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YandexWeatherTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF4128261D4AC74F8CFA5248 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1ABE62EA2A57DF43007E83AD /* Sources */ = {
@@ -314,6 +383,7 @@
 		};
 		1ABE63032A57DF45007E83AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB55C857B15052373529C349 /* Pods-YandexWeatherTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -342,6 +412,7 @@
 		};
 		1ABE63042A57DF45007E83AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0974F78AD1C78DA1FB673CF3 /* Pods-YandexWeatherTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
