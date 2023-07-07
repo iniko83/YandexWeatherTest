@@ -17,6 +17,7 @@ extension Resolver: ResolverRegistering {
 
 private extension Resolver {
     static func registerInteractors() {
+        register { NetworkAvailabilityInteractor() as NetworkAvailabilityInteractor }
         register { PreferenceInteractor() as PreferenceInteractor }
     }
 }

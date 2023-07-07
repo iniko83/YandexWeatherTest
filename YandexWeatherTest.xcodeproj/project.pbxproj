@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A1C02262A57ECC500F36B05 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02252A57ECC500F36B05 /* AppDelegate+Injection.swift */; };
 		1A1C02292A57ECFA00F36B05 /* PreferenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */; };
+		1A1C022D2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C022C2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift */; };
 		1ABE62F22A57DF43007E83AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE62F12A57DF43007E83AD /* AppDelegate.swift */; };
 		1ABE62F42A57DF43007E83AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE62F32A57DF43007E83AD /* SceneDelegate.swift */; };
 		1ABE62F92A57DF43007E83AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62F72A57DF43007E83AD /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		0974F78AD1C78DA1FB673CF3 /* Pods-YandexWeatherTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexWeatherTest.release.xcconfig"; path = "Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest.release.xcconfig"; sourceTree = "<group>"; };
 		1A1C02252A57ECC500F36B05 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceInteractor.swift; sourceTree = "<group>"; };
+		1A1C022C2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAvailabilityInteractor.swift; sourceTree = "<group>"; };
 		1ABE62EE2A57DF43007E83AD /* YandexWeatherTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexWeatherTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABE62F12A57DF43007E83AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ABE62F32A57DF43007E83AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 		1A1C02272A57ECE700F36B05 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				1A1C022C2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift */,
 				1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */,
 			);
 			path = Interactors;
@@ -253,6 +256,7 @@
 				1ABE62F22A57DF43007E83AD /* AppDelegate.swift in Sources */,
 				1ABE62F42A57DF43007E83AD /* SceneDelegate.swift in Sources */,
 				1A1C02292A57ECFA00F36B05 /* PreferenceInteractor.swift in Sources */,
+				1A1C022D2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
