@@ -10,11 +10,18 @@
 		1A1C02262A57ECC500F36B05 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02252A57ECC500F36B05 /* AppDelegate+Injection.swift */; };
 		1A1C02292A57ECFA00F36B05 /* PreferenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */; };
 		1A1C022D2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C022C2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift */; };
+		1A1C022F2A57FB8200F36B05 /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C022E2A57FB8200F36B05 /* LocationInteractor.swift */; };
+		1A1C02342A58074200F36B05 /* BehaviorRelay+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02332A58074200F36B05 /* BehaviorRelay+Extensions.swift */; };
+		1A1C02372A58077800F36B05 /* DefaultInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02362A58077800F36B05 /* DefaultInitializable.swift */; };
+		1A1C023A2A580ECC00F36B05 /* CLAuthorizationStatus+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02392A580ECC00F36B05 /* CLAuthorizationStatus+Extensions.swift */; };
 		1ABE62F22A57DF43007E83AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE62F12A57DF43007E83AD /* AppDelegate.swift */; };
 		1ABE62F42A57DF43007E83AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE62F32A57DF43007E83AD /* SceneDelegate.swift */; };
 		1ABE62F92A57DF43007E83AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62F72A57DF43007E83AD /* Main.storyboard */; };
 		1ABE62FB2A57DF45007E83AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62FA2A57DF45007E83AD /* Assets.xcassets */; };
 		1ABE62FE2A57DF45007E83AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62FC2A57DF45007E83AD /* LaunchScreen.storyboard */; };
+		1ABE91E72A581CD600E82ABA /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE91E62A581CD600E82ABA /* CLLocationManager+Rx.swift */; };
+		1ABE91E92A58239C00E82ABA /* CLLocationManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE91E82A58239C00E82ABA /* CLLocationManager+Extensions.swift */; };
+		1ABE91EB2A582BC900E82ABA /* CLLocationManager+RxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE91EA2A582BC900E82ABA /* CLLocationManager+RxExtensions.swift */; };
 		420D6839028CA152EA85BF7D /* Pods_YandexWeatherTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A803757F4FB1F260F576925 /* Pods_YandexWeatherTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +30,10 @@
 		1A1C02252A57ECC500F36B05 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
 		1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceInteractor.swift; sourceTree = "<group>"; };
 		1A1C022C2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAvailabilityInteractor.swift; sourceTree = "<group>"; };
+		1A1C022E2A57FB8200F36B05 /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
+		1A1C02332A58074200F36B05 /* BehaviorRelay+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Extensions.swift"; sourceTree = "<group>"; };
+		1A1C02362A58077800F36B05 /* DefaultInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultInitializable.swift; sourceTree = "<group>"; };
+		1A1C02392A580ECC00F36B05 /* CLAuthorizationStatus+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLAuthorizationStatus+Extensions.swift"; sourceTree = "<group>"; };
 		1ABE62EE2A57DF43007E83AD /* YandexWeatherTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexWeatherTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABE62F12A57DF43007E83AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ABE62F32A57DF43007E83AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +41,9 @@
 		1ABE62FA2A57DF45007E83AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ABE62FD2A57DF45007E83AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ABE62FF2A57DF45007E83AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ABE91E62A581CD600E82ABA /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		1ABE91E82A58239C00E82ABA /* CLLocationManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Extensions.swift"; sourceTree = "<group>"; };
+		1ABE91EA2A582BC900E82ABA /* CLLocationManager+RxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+RxExtensions.swift"; sourceTree = "<group>"; };
 		4A803757F4FB1F260F576925 /* Pods_YandexWeatherTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YandexWeatherTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB55C857B15052373529C349 /* Pods-YandexWeatherTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexWeatherTest.debug.xcconfig"; path = "Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,10 +63,55 @@
 		1A1C02272A57ECE700F36B05 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				1A1C022E2A57FB8200F36B05 /* LocationInteractor.swift */,
 				1A1C022C2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift */,
 				1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */,
 			);
 			path = Interactors;
+			sourceTree = "<group>";
+		};
+		1A1C02302A5806E500F36B05 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1A1C02352A58076800F36B05 /* Protocols */,
+				1A1C02312A5806EF00F36B05 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1A1C02312A5806EF00F36B05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A1C02382A580EC000F36B05 /* CoreLocation */,
+				1A1C02322A58070000F36B05 /* RxRelay */,
+				1ABE91E52A581CC500E82ABA /* RxSwift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A1C02322A58070000F36B05 /* RxRelay */ = {
+			isa = PBXGroup;
+			children = (
+				1A1C02332A58074200F36B05 /* BehaviorRelay+Extensions.swift */,
+			);
+			path = RxRelay;
+			sourceTree = "<group>";
+		};
+		1A1C02352A58076800F36B05 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1A1C02362A58077800F36B05 /* DefaultInitializable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1A1C02382A580EC000F36B05 /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				1A1C02392A580ECC00F36B05 /* CLAuthorizationStatus+Extensions.swift */,
+				1ABE91E82A58239C00E82ABA /* CLLocationManager+Extensions.swift */,
+			);
+			path = CoreLocation;
 			sourceTree = "<group>";
 		};
 		1ABE62E52A57DF43007E83AD = {
@@ -78,6 +137,7 @@
 		1ABE62F02A57DF43007E83AD /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1A1C02302A5806E500F36B05 /* Core */,
 				1ABE63082A57E718007E83AD /* Features */,
 				1A1C02272A57ECE700F36B05 /* Interactors */,
 				1ABE63072A57E70D007E83AD /* Startup */,
@@ -118,6 +178,15 @@
 			children = (
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		1ABE91E52A581CC500E82ABA /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				1ABE91E62A581CD600E82ABA /* CLLocationManager+Rx.swift */,
+				1ABE91EA2A582BC900E82ABA /* CLLocationManager+RxExtensions.swift */,
+			);
+			path = RxSwift;
 			sourceTree = "<group>";
 		};
 		B897C044453DED32EE3E2C30 /* Pods */ = {
@@ -255,8 +324,15 @@
 				1A1C02262A57ECC500F36B05 /* AppDelegate+Injection.swift in Sources */,
 				1ABE62F22A57DF43007E83AD /* AppDelegate.swift in Sources */,
 				1ABE62F42A57DF43007E83AD /* SceneDelegate.swift in Sources */,
+				1A1C02372A58077800F36B05 /* DefaultInitializable.swift in Sources */,
+				1ABE91E92A58239C00E82ABA /* CLLocationManager+Extensions.swift in Sources */,
+				1A1C02342A58074200F36B05 /* BehaviorRelay+Extensions.swift in Sources */,
 				1A1C02292A57ECFA00F36B05 /* PreferenceInteractor.swift in Sources */,
+				1ABE91EB2A582BC900E82ABA /* CLLocationManager+RxExtensions.swift in Sources */,
 				1A1C022D2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift in Sources */,
+				1ABE91E72A581CD600E82ABA /* CLLocationManager+Rx.swift in Sources */,
+				1A1C022F2A57FB8200F36B05 /* LocationInteractor.swift in Sources */,
+				1A1C023A2A580ECC00F36B05 /* CLAuthorizationStatus+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
