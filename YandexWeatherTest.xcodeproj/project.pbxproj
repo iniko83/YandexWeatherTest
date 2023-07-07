@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1C02262A57ECC500F36B05 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02252A57ECC500F36B05 /* AppDelegate+Injection.swift */; };
+		1A1C02292A57ECFA00F36B05 /* PreferenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */; };
 		1ABE62F22A57DF43007E83AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE62F12A57DF43007E83AD /* AppDelegate.swift */; };
 		1ABE62F42A57DF43007E83AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE62F32A57DF43007E83AD /* SceneDelegate.swift */; };
-		1ABE62F62A57DF43007E83AD /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE62F52A57DF43007E83AD /* WeatherViewController.swift */; };
 		1ABE62F92A57DF43007E83AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62F72A57DF43007E83AD /* Main.storyboard */; };
 		1ABE62FB2A57DF45007E83AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62FA2A57DF45007E83AD /* Assets.xcassets */; };
 		1ABE62FE2A57DF45007E83AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABE62FC2A57DF45007E83AD /* LaunchScreen.storyboard */; };
@@ -18,10 +19,11 @@
 
 /* Begin PBXFileReference section */
 		0974F78AD1C78DA1FB673CF3 /* Pods-YandexWeatherTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexWeatherTest.release.xcconfig"; path = "Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest.release.xcconfig"; sourceTree = "<group>"; };
+		1A1C02252A57ECC500F36B05 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
+		1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceInteractor.swift; sourceTree = "<group>"; };
 		1ABE62EE2A57DF43007E83AD /* YandexWeatherTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexWeatherTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABE62F12A57DF43007E83AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ABE62F32A57DF43007E83AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1ABE62F52A57DF43007E83AD /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		1ABE62F82A57DF43007E83AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ABE62FA2A57DF45007E83AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ABE62FD2A57DF45007E83AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1C02272A57ECE700F36B05 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				1A1C02282A57ECFA00F36B05 /* PreferenceInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
 		1ABE62E52A57DF43007E83AD = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				1ABE63082A57E718007E83AD /* Features */,
+				1A1C02272A57ECE700F36B05 /* Interactors */,
 				1ABE63072A57E70D007E83AD /* Startup */,
 				1ABE62F72A57DF43007E83AD /* Main.storyboard */,
 			);
@@ -93,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				1ABE62F12A57DF43007E83AD /* AppDelegate.swift */,
+				1A1C02252A57ECC500F36B05 /* AppDelegate+Injection.swift */,
 				1ABE62F32A57DF43007E83AD /* SceneDelegate.swift */,
 			);
 			path = Startup;
@@ -101,7 +113,6 @@
 		1ABE63082A57E718007E83AD /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				1ABE62F52A57DF43007E83AD /* WeatherViewController.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -112,7 +123,6 @@
 				FB55C857B15052373529C349 /* Pods-YandexWeatherTest.debug.xcconfig */,
 				0974F78AD1C78DA1FB673CF3 /* Pods-YandexWeatherTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -239,9 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ABE62F62A57DF43007E83AD /* WeatherViewController.swift in Sources */,
+				1A1C02262A57ECC500F36B05 /* AppDelegate+Injection.swift in Sources */,
 				1ABE62F22A57DF43007E83AD /* AppDelegate.swift in Sources */,
 				1ABE62F42A57DF43007E83AD /* SceneDelegate.swift in Sources */,
+				1A1C02292A57ECFA00F36B05 /* PreferenceInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
