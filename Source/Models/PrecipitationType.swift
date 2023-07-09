@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum PrecipitationType: String, Codable {
-    case `none`     = "0"   // без осадков
-    case rain       = "1"   // дождь
-    case wetSnow    = "2"   // дождь со снегом
-    case snow       = "3"   // снег
-    case hail       = "4"   // град
+enum PrecipitationType: Int, Codable {
+    case `none`     // без осадков
+    case rain       // дождь
+    case wetSnow    // дождь со снегом
+    case snow       // снег
+    case hail       // град
 }

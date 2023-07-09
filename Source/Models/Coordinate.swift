@@ -19,9 +19,6 @@ struct Coordinate: Codable {
     }
 }
 
-extension Coordinate: DefaultInitializable {
-    init() {
-        lat = 55.7522
-        lon = 37.6156
-    }
+extension Coordinate {
+    static let `default` = Self(lat: 55.7522, lon: 37.6156)
 }
