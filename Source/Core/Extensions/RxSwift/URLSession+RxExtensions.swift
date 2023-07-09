@@ -8,9 +8,21 @@
 import RxSwift
 
 extension URLSession {
-    func request(_ request: URLRequest) -> Single<ApiResponse> {
+    func request(_ apiRequest: ApiRequest, baseUrl: URL) -> Single<ApiResponse> {
+        let result: Single<ApiResponse>
+        do {
+            let request = try apiRequest.urlRequest(baseUrl)
+            result = self.request(request)
+        }
+        catch {
+            result = .error(error)
+        }
+        return result
+    }
+
+    func request(_ urlRequest: URLRequest) -> Single<ApiResponse> {
         return .create { [unowned self] observer in
-            let task = self.dataTask(with: request) { (data, response, error) in
+            let task = self.dataTask(with: urlRequest) { (data, response, error) in
                 if
                     let data,
                     let response,

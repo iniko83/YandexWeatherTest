@@ -17,7 +17,10 @@ extension Resolver: ResolverRegistering {
 
 private extension Resolver {
     static func registerInteractors() {
+        register { LocationInteractor() as LocationInteractor }
         register { NetworkAvailabilityInteractor() as NetworkAvailabilityInteractor }
-        register { PreferenceInteractor() as PreferenceInteractor }
+
+        // order mean
+        register { WeatherNetworkInteractor() as WeatherNetworkInteractor }
     }
 }
