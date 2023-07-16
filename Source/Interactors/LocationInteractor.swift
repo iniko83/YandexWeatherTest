@@ -11,7 +11,7 @@ import RxSwift
 
 /* Пример интерактора c RxSwift */
 
-protocol LocationInteractorInterface: AnyObject {
+protocol LocationInteractorProtocol: AnyObject {
     var isAuthorized: BehaviorRelay<Bool> { get }
     var isDenied: BehaviorRelay<Bool> { get }
 
@@ -50,7 +50,7 @@ final class LocationInteractor {
     }
 }
 
-extension LocationInteractor: LocationInteractorInterface {
+extension LocationInteractor: LocationInteractorProtocol {
     func requestLocation() -> Single<CLLocationCoordinate2D> {
         locationManager.requestLocation()
     }

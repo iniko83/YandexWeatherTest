@@ -9,6 +9,9 @@ import Foundation
 import Network
 
 /* Пример интерактора без RxSwift, подписчики оповещаются посредством NotificationCenter **/
+
+// NOTE: NWPathMonitor will not work via iOS Simulator
+
 extension Notification.Name {
     static let didChangeNetworkAvailabilityStatus = Notification.Name("didChangeNetworkAvailabilityStatus")
 }
@@ -16,7 +19,7 @@ extension Notification.Name {
 final class NetworkAvailabilityInteractor {
     private var monitor: NWPathMonitor?
 
-    private(set) var isNetworkAvailable = false {
+    private(set) var isNetworkAvailable = true {
         didSet {
             guard oldValue != isNetworkAvailable else { return }
             postNetworkAvailabilityNotification()
@@ -48,7 +51,11 @@ final class NetworkAvailabilityInteractor {
         self.monitor = monitor
 
         monitor.pathUpdateHandler = { [weak self] path in
-            self?.isNetworkAvailable = path.status == .satisfied
+            let isNetworkAvailable = path.status == .satisfied
+
+            DispatchQueue.main.async {
+                self?.isNetworkAvailable = isNetworkAvailable
+            }
         }
 
         let gueue = DispatchQueue.global(qos: .background)

@@ -5,12 +5,10 @@ use_frameworks!
 target 'YandexWeatherTest' do
   inherit! :search_paths
 
-  pod 'RxCocoa'
-  pod 'RxSwift'
-
   pod 'Resolver'
 
-  pod 'SwiftLint'
+  pod 'RxCocoa'
+  pod 'RxSwift'
 end
 
 post_install do |installer|

@@ -21,14 +21,15 @@ extension BehaviorRelay where Element: DefaultInitializable {
     }
 }
 
-extension BehaviorRelay where Element: ExpressibleByBooleanLiteral {
-    convenience init() {
-        self.init(value: false)
-    }
-}
-
 extension BehaviorRelay where Element: ExpressibleByNilLiteral {
     convenience init() {
         self.init(value: nil)
+    }
+}
+
+// MARK: -
+extension BehaviorRelay where Element == BooleanLiteralType {
+    static func enabled() -> Self {
+        .init(value: true)
     }
 }

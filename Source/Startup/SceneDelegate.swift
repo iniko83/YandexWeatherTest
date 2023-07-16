@@ -9,16 +9,16 @@ import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    private(set) var svgRendererContainerView = UIView()
 
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = scene as? UIWindowScene else { return }
+        guard let windowScene = scene as? UIWindowScene else { return }
+
+        connect(to: windowScene)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,5 +47,40 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+}
+
+extension SceneDelegate {
+    private func connect(to windowScene: UIWindowScene) {
+        let window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window.windowScene = windowScene
+        self.window = window
+
+        // svg render support
+        addSvgRendererContainerView(to: window)
+
+        window.rootViewController = makeRootController()
+        window.makeKeyAndVisible()
+    }
+
+    private func makeRootController() -> UIViewController {
+        WeatherViewController.instantiateFromNib()
+    }
+}
+
+// MARK: - Svg render support
+extension SceneDelegate {
+    private func addSvgRendererContainerView(to window: UIWindow) {
+        let view = svgRendererContainerView
+        view.alpha = 0
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        window.addSubview(view)
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: window.safeAreaLayoutGuide.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: window.safeAreaLayoutGuide.trailingAnchor),
+            view.topAnchor.constraint(equalTo: window.safeAreaLayoutGuide.topAnchor),
+            view.bottomAnchor.constraint(equalTo: window.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }

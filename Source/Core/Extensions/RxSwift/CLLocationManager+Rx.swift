@@ -15,7 +15,8 @@ extension CLLocationManager: HasDelegate {
 
 final class RxCLLocationManagerDelegateProxy:
     DelegateProxy<CLLocationManager, CLLocationManagerDelegate>,
-    DelegateProxyType, CLLocationManagerDelegate
+    DelegateProxyType,
+    CLLocationManagerDelegate
 {
     private(set) weak var locationManager: CLLocationManager?
 
@@ -35,7 +36,7 @@ final class RxCLLocationManagerDelegateProxy:
 }
 
 extension Reactive where Base: CLLocationManager {
-    var delegate : DelegateProxy<CLLocationManager, CLLocationManagerDelegate> {
+    var delegate: DelegateProxy<CLLocationManager, CLLocationManagerDelegate> {
         RxCLLocationManagerDelegateProxy.proxy(for: base)
     }
 

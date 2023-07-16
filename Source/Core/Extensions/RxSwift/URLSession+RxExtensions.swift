@@ -21,7 +21,7 @@ extension URLSession {
     }
 
     func request(_ urlRequest: URLRequest) -> Single<ApiResponse> {
-        return .create { [unowned self] observer in
+        .create { [unowned self] observer in
             let task = self.dataTask(with: urlRequest) { (data, response, error) in
                 if
                     let data,
