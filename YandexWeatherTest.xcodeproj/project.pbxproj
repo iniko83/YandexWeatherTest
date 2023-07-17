@@ -24,6 +24,10 @@
 		1A2538A92A5E486F00775FCD /* SvgImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2538A82A5E486F00775FCD /* SvgImageName.swift */; };
 		1A2538AD2A5E4D4800775FCD /* SvgImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2538AC2A5E4D4800775FCD /* SvgImageStorage.swift */; };
 		1A255E5E2A64264000C5F264 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A255E5D2A64264000C5F264 /* Date+Extensions.swift */; };
+		1A2AE7F52A64DA6300CE7473 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1A2AE7F42A64DA6300CE7473 /* swiftgen.yml */; };
+		1A2AE7F92A64DAA300CE7473 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2AE7F72A64DAA200CE7473 /* Strings+Generated.swift */; };
+		1A2AE7FA2A64DAA300CE7473 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2AE7F82A64DAA200CE7473 /* XCAssets+Generated.swift */; };
+		1A2AE7FE2A64DC6F00CE7473 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A2AE8002A64DC6F00CE7473 /* Localizable.strings */; };
 		1A3145C52A5F5CDF005505B4 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145C42A5F5CDF005505B4 /* FileManager+Extensions.swift */; };
 		1A3145C82A5F6298005505B4 /* SvgImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145C72A5F6298005505B4 /* SvgImageCache.swift */; };
 		1A3145CA2A5F6308005505B4 /* SvgImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145C92A5F6308005505B4 /* SvgImageInfo.swift */; };
@@ -116,6 +120,10 @@
 		1A2538A82A5E486F00775FCD /* SvgImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgImageName.swift; sourceTree = "<group>"; };
 		1A2538AC2A5E4D4800775FCD /* SvgImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgImageStorage.swift; sourceTree = "<group>"; };
 		1A255E5D2A64264000C5F264 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		1A2AE7F42A64DA6300CE7473 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
+		1A2AE7F72A64DAA200CE7473 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		1A2AE7F82A64DAA200CE7473 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		1A2AE7FF2A64DC6F00CE7473 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A3145C42A5F5CDF005505B4 /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
 		1A3145C72A5F6298005505B4 /* SvgImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgImageCache.swift; sourceTree = "<group>"; };
 		1A3145C92A5F6308005505B4 /* SvgImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgImageInfo.swift; sourceTree = "<group>"; };
@@ -318,6 +326,15 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		1A2AE7F62A64DAA200CE7473 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				1A2AE7F72A64DAA200CE7473 /* Strings+Generated.swift */,
+				1A2AE7F82A64DAA200CE7473 /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		1A3145C62A5F6288005505B4 /* Caches */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				1ABE62F02A57DF43007E83AD /* Source */,
+				1A2AE7F62A64DAA200CE7473 /* Generated */,
 				1ABE63062A57E567007E83AD /* Resources */,
 				1ABE63052A57E556007E83AD /* SupportingFiles */,
 				1ABE62EF2A57DF43007E83AD /* Products */,
@@ -461,6 +479,7 @@
 		1ABE63052A57E556007E83AD /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				1A2AE7F42A64DA6300CE7473 /* swiftgen.yml */,
 				1ABE62FC2A57DF45007E83AD /* LaunchScreen.storyboard */,
 				1ABE62FF2A57DF45007E83AD /* Info.plist */,
 			);
@@ -472,6 +491,7 @@
 			children = (
 				1A25388C2A5E1DAC00775FCD /* icons */,
 				1ABE62FA2A57DF45007E83AD /* Assets.xcassets */,
+				1A2AE8002A64DC6F00CE7473 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -698,6 +718,7 @@
 				1ABE62EB2A57DF43007E83AD /* Frameworks */,
 				1ABE62EC2A57DF43007E83AD /* Resources */,
 				CF4128261D4AC74F8CFA5248 /* [CP] Embed Pods Frameworks */,
+				1A2AE7FD2A64DB7000CE7473 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -746,8 +767,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2AE7F52A64DA6300CE7473 /* swiftgen.yml in Resources */,
 				1ABE62FE2A57DF45007E83AD /* LaunchScreen.storyboard in Resources */,
 				1A2538932A5E1DCD00775FCD /* humidity.svg in Resources */,
+				1A2AE7FE2A64DC6F00CE7473 /* Localizable.strings in Resources */,
 				1A2538942A5E1DCD00775FCD /* wind.svg in Resources */,
 				1A2538A12A5E2B9F00775FCD /* noImage.svg in Resources */,
 				1ABEC1912A5B80810049755E /* WeatherFactView.xib in Resources */,
@@ -764,6 +787,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1A2AE7FD2A64DB7000CE7473 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
+		};
 		3A1134C8401EE96382ED6C09 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -864,10 +905,12 @@
 				1ABE91FD2A58CA8100E82ABA /* WeatherForce.swift in Sources */,
 				1ABE92052A59B02200E82ABA /* WeatherBaseInfo.swift in Sources */,
 				1ABEC1682A5B42CF0049755E /* WeatherResponse.swift in Sources */,
+				1A2AE7FA2A64DAA300CE7473 /* XCAssets+Generated.swift in Sources */,
 				1ABEC1512A5B3F8B0049755E /* URLSession+RxExtensions.swift in Sources */,
 				1ABE92032A58CAF300E82ABA /* WeatherCondition.swift in Sources */,
 				1ABE92012A58CADF00E82ABA /* Daytime.swift in Sources */,
 				1A3145CC2A5F801A005505B4 /* SvgImageRenderer.swift in Sources */,
+				1A2AE7F92A64DAA300CE7473 /* Strings+Generated.swift in Sources */,
 				1ABE91EB2A582BC900E82ABA /* CLLocationManager+RxExtensions.swift in Sources */,
 				1A1C022D2A57FB1E00F36B05 /* NetworkAvailabilityInteractor.swift in Sources */,
 				1ABEC1882A5B7ED60049755E /* UITableView+Extensions.swift in Sources */,
@@ -891,6 +934,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1A2AE8002A64DC6F00CE7473 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A2AE7FF2A64DC6F00CE7473 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		1ABE62FC2A57DF45007E83AD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -46,3 +46,7 @@ Pods/
 #
 # Carthage/Build/
 #
+
+# SwiftGen
+
+/Generated

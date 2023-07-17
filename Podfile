@@ -9,6 +9,8 @@ target 'YandexWeatherTest' do
 
   pod 'RxCocoa'
   pod 'RxSwift'
+
+  pod 'SwiftGen'
 end
 
 post_install do |installer|
