@@ -12,18 +12,15 @@ enum SvgImageRenderError: Error {
     case notFoundRenderContainerView
 }
 
-// FIXME: add localization
-/*
 extension SvgImageRenderError: LocalizedError {
     public var errorDescription: String? {
-        let result: String?
+        let result: String
         switch self {
         case let .failedRenderLocalSvg(name):
-            result = "Failed generate image for local svg with name \"\(name.rawValue)\".")
+            result = L10n.SvgRenderError.failedRenderLocalSvg(name.rawValue)
         case .notFoundRenderContainerView:
-            result = "Failed find containerView for render svg images."
+            result = L10n.SvgRenderError.notFoundRenderContainerView
         }
         return result
     }
 }
-*/

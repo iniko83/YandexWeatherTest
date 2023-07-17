@@ -11,11 +11,8 @@ struct SvgImageResourceError: Error {
     let name: SvgImageName.Local
 }
 
-// FIXME: add localization
-/*
 extension SvgImageResourceError: LocalizedError {
     public var errorDescription: String? {
-        "Please add \"\(name.rawValue).svg\" at \"Resources/Icons\" project folder."
+        L10n.SvgResourceError.notFoundIcon(name.rawValue)
     }
 }
-*/

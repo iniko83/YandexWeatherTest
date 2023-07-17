@@ -29,5 +29,9 @@ extension SvgImageName {
         case location
         case wind
         case windDirection
+
+        case connectionLost
+        case serverOffline
+        case unknownError
     }
 }

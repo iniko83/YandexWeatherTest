@@ -1,1 +1,12 @@
+"SvgRenderError.FailedRenderLocalSvg" = "Failed generate image for local svg with name \"\%@\".";
+"SvgRenderError.NotFoundRenderContainerView" = "Failed find containerView for render svg images.";
 
+"SvgResourceError.NotFoundIcon" = "Please add \"%@.svg\" at \"Resources/Icons\" project folder.";
+
+"PresentableError.ConnectionLost" = "Connection lost.";
+"PresentableError.Decoding" = "Failed to parse data.";
+"PresentableError.Encoding" = "Failed encoding data.";
+"PresentableError.ForbiddenRequest" = "Daily request limit exceeded.";
+"PresentableError.ServerOffline" = "Server maintenance.";
+"PresentableError.Unknown" = "Something went wrong.";
+"PresentableError.WrongUrl" = "Wrong request URL.";

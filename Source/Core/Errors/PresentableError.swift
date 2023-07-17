@@ -19,10 +19,6 @@ struct PresentableError: Error, Equatable {
         kind.message()
     }
 
-    func title() -> String? {
-        kind.title()
-    }
-
     // MARK: - Equatable
     static func == (lhs: PresentableError, rhs: PresentableError) -> Bool {
         lhs.kind == rhs.kind
@@ -98,40 +94,36 @@ enum PresentableErrorKind: Int {
     }
 
     // MARK: -
-    func message() -> String {
-        // FIXME: add localization support
-        let result: String
+    func icon() -> SvgImageName.Local {
+        let result: SvgImageName.Local
         switch self {
-        case .unknown:
-            result = "unknown"
-        case .decoding:
-            result = "decoding"
-        case .encoding:
-            result = "encoding"
-        case .wrongUrl:
-            result = "wrongUrl"
-        case .forbiddenRequest:
-            result = "forbiddenRequest"
         case .connectionLost:
-            result = "connectionLost"
+            result = .connectionLost
         case .serverOffline:
-            result = "serverOffline"
+            result = .serverOffline
+        default:
+            result = .unknownError
         }
         return result
     }
 
-    func title() -> String {
-        // FIXME: add localization support
+    func message() -> String {
         let result: String
         switch self {
         case .unknown:
-            result = "title.unknown"
+            result = L10n.PresentableError.unknown
         case .decoding:
-            result = "title.decoding"
+            result = L10n.PresentableError.decoding
         case .encoding:
-            result = "title.encoding"
-        case .wrongUrl, .forbiddenRequest, .connectionLost, .serverOffline:
-            result = "Network error"
+            result = L10n.PresentableError.encoding
+        case .wrongUrl:
+            result = L10n.PresentableError.wrongUrl
+        case .forbiddenRequest:
+            result = L10n.PresentableError.forbiddenRequest
+        case .connectionLost:
+            result = L10n.PresentableError.connectionLost
+        case .serverOffline:
+            result = L10n.PresentableError.serverOffline
         }
         return result
     }

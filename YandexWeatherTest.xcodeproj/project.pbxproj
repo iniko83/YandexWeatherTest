@@ -28,6 +28,9 @@
 		1A2AE7F92A64DAA300CE7473 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2AE7F72A64DAA200CE7473 /* Strings+Generated.swift */; };
 		1A2AE7FA2A64DAA300CE7473 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2AE7F82A64DAA200CE7473 /* XCAssets+Generated.swift */; };
 		1A2AE7FE2A64DC6F00CE7473 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A2AE8002A64DC6F00CE7473 /* Localizable.strings */; };
+		1A2AE8072A64DFF800CE7473 /* connectionLost.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1A2AE8052A64DFF800CE7473 /* connectionLost.svg */; };
+		1A2AE8082A64DFF800CE7473 /* unknownError.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1A2AE8062A64DFF800CE7473 /* unknownError.svg */; };
+		1A2AE80A2A64E4A100CE7473 /* serverOffline.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1A2AE8092A64E4A100CE7473 /* serverOffline.svg */; };
 		1A3145C52A5F5CDF005505B4 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145C42A5F5CDF005505B4 /* FileManager+Extensions.swift */; };
 		1A3145C82A5F6298005505B4 /* SvgImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145C72A5F6298005505B4 /* SvgImageCache.swift */; };
 		1A3145CA2A5F6308005505B4 /* SvgImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145C92A5F6308005505B4 /* SvgImageInfo.swift */; };
@@ -124,6 +127,9 @@
 		1A2AE7F72A64DAA200CE7473 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		1A2AE7F82A64DAA200CE7473 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		1A2AE7FF2A64DC6F00CE7473 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A2AE8052A64DFF800CE7473 /* connectionLost.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = connectionLost.svg; sourceTree = "<group>"; };
+		1A2AE8062A64DFF800CE7473 /* unknownError.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unknownError.svg; sourceTree = "<group>"; };
+		1A2AE8092A64E4A100CE7473 /* serverOffline.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = serverOffline.svg; sourceTree = "<group>"; };
 		1A3145C42A5F5CDF005505B4 /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
 		1A3145C72A5F6298005505B4 /* SvgImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgImageCache.swift; sourceTree = "<group>"; };
 		1A3145C92A5F6308005505B4 /* SvgImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgImageInfo.swift; sourceTree = "<group>"; };
@@ -297,9 +303,12 @@
 		1A25388C2A5E1DAC00775FCD /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				1A2AE8052A64DFF800CE7473 /* connectionLost.svg */,
 				1A25388F2A5E1DCD00775FCD /* humidity.svg */,
 				1A25388D2A5E1DCD00775FCD /* location.svg */,
 				1A2538A02A5E2B9F00775FCD /* noImage.svg */,
+				1A2AE8092A64E4A100CE7473 /* serverOffline.svg */,
+				1A2AE8062A64DFF800CE7473 /* unknownError.svg */,
 				1A2538902A5E1DCD00775FCD /* wind.svg */,
 				1A25388E2A5E1DCD00775FCD /* windDirection.svg */,
 			);
@@ -775,10 +784,13 @@
 				1A2538A12A5E2B9F00775FCD /* noImage.svg in Resources */,
 				1ABEC1912A5B80810049755E /* WeatherFactView.xib in Resources */,
 				1A2538922A5E1DCD00775FCD /* windDirection.svg in Resources */,
+				1A2AE8082A64DFF800CE7473 /* unknownError.svg in Resources */,
 				1ABEC1832A5B7A310049755E /* WeatherViewController.xib in Resources */,
 				1A2538912A5E1DCD00775FCD /* location.svg in Resources */,
 				1ABE62FB2A57DF45007E83AD /* Assets.xcassets in Resources */,
 				1AA751932A5C6C21005C4128 /* ConnectionStatusView.xib in Resources */,
+				1A2AE80A2A64E4A100CE7473 /* serverOffline.svg in Resources */,
+				1A2AE8072A64DFF800CE7473 /* connectionLost.svg in Resources */,
 				1AB3242C2A60F0E200035833 /* WeatherForecastView.xib in Resources */,
 				1AA751A52A5CA770005C4128 /* WarningTextButton.xib in Resources */,
 			);
