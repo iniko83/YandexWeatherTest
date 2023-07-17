@@ -1,7 +1,18 @@
-"SvgRenderError.FailedRenderLocalSvg" = "Failed generate image for local svg with name \"\%@\".";
-"SvgRenderError.NotFoundRenderContainerView" = "Failed find containerView for render svg images.";
+"Action.Cancel.Verb" = "Cancel";
+"Action.OpenSettings" = "Open settings";
 
-"SvgResourceError.NotFoundIcon" = "Please add \"%@.svg\" at \"Resources/Icons\" project folder.";
+"LocationServices.Warning.Available" = "Location services available";
+"LocationServices.Warning.Denied" = "Location services denied";
+
+"MoonPhase.Text.FirstQuarter" = "first quarter";
+"MoonPhase.Text.FullMoon" = "full moon";
+"MoonPhase.Text.LastQuarter" = "last quarter";
+"MoonPhase.Text.NewMoon" = "new moon";
+"MoonPhase.Text.WaningMoon" = "waning moon";
+"MoonPhase.Text.WaxingCrescent" = "waxing crescent";
+
+"NetworkConnection.Warning.Connected" = "Connected";
+"NetworkConnection.Warning.Unavailable" = "Network connection unavailable";
 
 "PresentableError.ConnectionLost" = "Connection lost.";
 "PresentableError.Decoding" = "Failed to parse data.";
@@ -10,3 +21,10 @@
 "PresentableError.ServerOffline" = "Server maintenance.";
 "PresentableError.Unknown" = "Something went wrong.";
 "PresentableError.WrongUrl" = "Wrong request URL.";
+
+"SvgRenderError.FailedRenderLocalSvg" = "Failed generate image for local svg with name \"\%@\".";
+"SvgRenderError.NotFoundRenderContainerView" = "Failed find containerView for render svg images.";
+
+"SvgResourceError.NotFoundIcon" = "Please add \"%@.svg\" at \"Resources/Icons\" project folder.";
+
+"WeatherController.Alert.LocationServicesDenied.Message" = "To determine your current location, you need to turn on location services in the app's settings.";

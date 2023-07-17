@@ -8,6 +8,8 @@
 import Foundation
 
 protocol WeatherView {
+    func showLocationDeniedAlert()
+
     func updateLocationAvailabilityStatus(isShowing: Bool)
     func updateNetworkAvailabilityStatus(isShowing: Bool)
 }

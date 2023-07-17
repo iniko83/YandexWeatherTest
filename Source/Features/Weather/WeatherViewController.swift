@@ -33,6 +33,11 @@ final class WeatherViewController: MvpViewController<WeatherPresenter>, MvpView 
         self.animated = true
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.presenter?.viewDidAppear()
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
@@ -54,6 +59,17 @@ final class WeatherViewController: MvpViewController<WeatherPresenter>, MvpView 
 }
 
 extension WeatherViewController: WeatherView {
+    func showLocationDeniedAlert() {
+        let alertController = UIAlertController.make(
+            message: L10n.WeatherController.Alert.LocationServicesDenied.message,
+            actions: [
+                .default(L10n.Action.openSettings, handler: { UIApplication.openSettings() }),
+                .cancel(handler: { self.presenter?.tapOnCancelAtLocationDeniedAlert() })
+            ]
+        )
+        present(alertController, animated: animated)
+    }
+
     func updateLocationAvailabilityStatus(isShowing: Bool) {
         updateConstraint(
             locationAuthStatusHideConstraint,
@@ -98,8 +114,8 @@ fileprivate extension WeatherPresenterViewDataSource {
         isLocationServicesDenied
             .map { isDenied in
                 isDenied
-                    ? "Location services denied"
-                    : "Location services available"
+                    ? L10n.LocationServices.Warning.denied
+                    : L10n.LocationServices.Warning.available
             }
             .bind(to: result.text)
             .disposed(by: bag)

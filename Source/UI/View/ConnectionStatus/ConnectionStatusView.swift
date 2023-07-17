@@ -109,7 +109,7 @@ private enum ConnectionStatus {
 
     func text() -> String {
         isOffline()
-            ? "Network connection unavailable"
-            : "Connected"
+            ? L10n.NetworkConnection.Warning.unavailable
+            : L10n.NetworkConnection.Warning.connected
     }
 }

@@ -101,6 +101,8 @@
 		1ABEC18A2A5B7EE40049755E /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABEC1892A5B7EE40049755E /* UICollectionView+Extensions.swift */; };
 		1ABEC18F2A5B80750049755E /* WeatherFactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABEC18E2A5B80750049755E /* WeatherFactView.swift */; };
 		1ABEC1912A5B80810049755E /* WeatherFactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABEC1902A5B80810049755E /* WeatherFactView.xib */; };
+		1AC09D252A6585CD0027B522 /* WeatherCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC09D242A6585CD0027B522 /* WeatherCoordinate.swift */; };
+		1AC09D272A65A2B70027B522 /* UIAlertController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC09D262A65A2B70027B522 /* UIAlertController+Utility.swift */; };
 		420D6839028CA152EA85BF7D /* Pods_YandexWeatherTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A803757F4FB1F260F576925 /* Pods_YandexWeatherTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +204,8 @@
 		1ABEC1892A5B7EE40049755E /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		1ABEC18E2A5B80750049755E /* WeatherFactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFactView.swift; sourceTree = "<group>"; };
 		1ABEC1902A5B80810049755E /* WeatherFactView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherFactView.xib; sourceTree = "<group>"; };
+		1AC09D242A6585CD0027B522 /* WeatherCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCoordinate.swift; sourceTree = "<group>"; };
+		1AC09D262A65A2B70027B522 /* UIAlertController+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Utility.swift"; sourceTree = "<group>"; };
 		4A803757F4FB1F260F576925 /* Pods_YandexWeatherTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YandexWeatherTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB55C857B15052373529C349 /* Pods-YandexWeatherTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexWeatherTest.debug.xcconfig"; path = "Target Support Files/Pods-YandexWeatherTest/Pods-YandexWeatherTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -599,6 +603,7 @@
 			children = (
 				1ABE921A2A5AE75700E82ABA /* DateFormatter+Utility.swift */,
 				1AA751942A5C6E39005C4128 /* UIAnimator+Utility.swift */,
+				1AC09D262A65A2B70027B522 /* UIAlertController+Utility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -643,7 +648,8 @@
 		1ABEC1772A5B65680049755E /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				1ABEC18D2A5B80630049755E /* Details */,
+				1AC09D212A6585B30027B522 /* Details */,
+				1ABEC18D2A5B80630049755E /* Views */,
 				1ABEC1792A5B65680049755E /* WeatherPresenter.swift */,
 				1ABEC17C2A5B65EE0049755E /* WeatherView.swift */,
 				1ABEC1802A5B7A310049755E /* WeatherViewController.swift */,
@@ -687,13 +693,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1ABEC18D2A5B80630049755E /* Details */ = {
+		1ABEC18D2A5B80630049755E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1ABEC18E2A5B80750049755E /* WeatherFactView.swift */,
 				1ABEC1902A5B80810049755E /* WeatherFactView.xib */,
 				1AB324292A60F0DA00035833 /* WeatherForecastView.swift */,
 				1AB3242B2A60F0E200035833 /* WeatherForecastView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1AC09D212A6585B30027B522 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				1AC09D242A6585CD0027B522 /* WeatherCoordinate.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -886,6 +900,7 @@
 				1ABE62F42A57DF43007E83AD /* SceneDelegate.swift in Sources */,
 				1A3145D42A5FA800005505B4 /* SvgImageView.swift in Sources */,
 				1ABE91F32A583BDB00E82ABA /* WeatherFact.swift in Sources */,
+				1AC09D252A6585CD0027B522 /* WeatherCoordinate.swift in Sources */,
 				1AA751A72A5CB187005C4128 /* UIApplication+Extensions.swift in Sources */,
 				1A99A47E2A5DF31A00981136 /* UIView+Extensions.swift in Sources */,
 				1ABE92182A5AE64800E82ABA /* RawRepresentable+Extensions.swift in Sources */,
@@ -935,6 +950,7 @@
 				1A1C023A2A580ECC00F36B05 /* CLAuthorizationStatus+Extensions.swift in Sources */,
 				1A255E5E2A64264000C5F264 /* Date+Extensions.swift in Sources */,
 				1AA751A32A5C9DDC005C4128 /* Comparable+Extensions.swift in Sources */,
+				1AC09D272A65A2B70027B522 /* UIAlertController+Utility.swift in Sources */,
 				1ABEC15C2A5B3FA30049755E /* ApiResponse.swift in Sources */,
 				1ABEC15A2A5B3FA30049755E /* WrongUrlError.swift in Sources */,
 				1A3145C52A5F5CDF005505B4 /* FileManager+Extensions.swift in Sources */,

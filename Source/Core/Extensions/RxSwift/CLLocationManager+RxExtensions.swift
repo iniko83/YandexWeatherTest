@@ -26,7 +26,9 @@ extension CLLocationManager {
 
         let result = rx
             .didChangeAuthorizationStatus
+            .skip(1)
             .map { status in status.isAuthorized() }
+            .take(1)
             .asSingle()
 
         requestWhenInUseAuthorization()
@@ -36,37 +38,25 @@ extension CLLocationManager {
 
     func requestLocation() -> Single<CLLocationCoordinate2D> {
         authorizeWhenInUse()
-            .asObservable()
             .flatMap { isAuthorized in
-                Observable<LocationResult>
-                    .merge(
-                        self.rx
-                            .didUpdateLocation
-                            .compactMap { locations in locations.first?.coordinate }
-                            .map { coordinate in .coordinate(coordinate) },
-                        self.rx
-                            .didFailWithError
-                            .map { error in .error(error) }
-                    )
-                    .map { locationResult in try locationResult.tryGetCoordinate() }
+                let result: Single<CLLocationCoordinate2D>
+                if isAuthorized {
+                    result = Observable<CLLocationCoordinate2D>
+                        .merge(
+                            self.rx
+                                .didUpdateLocation
+                                .compactMap { locations in locations.first?.coordinate },
+                            self.rx
+                                .didFailWithError
+                                .map { error in throw error }
+                        )
+                        .take(1)
+                        .asSingle()
+                } else {
+                    let error = CLError(.denied)
+                    result = .error(error)
+                }
+                return result
             }
-            .asSingle()
-    }
-}
-
-// MARK: - Helpers
-private enum LocationResult {
-    case coordinate(CLLocationCoordinate2D)
-    case error(Error)
-
-    func tryGetCoordinate() throws -> CLLocationCoordinate2D {
-        let result: CLLocationCoordinate2D
-        switch self {
-        case let .coordinate(value):
-            result = value
-        case let .error(error):
-            throw error
-        }
-        return result
     }
 }

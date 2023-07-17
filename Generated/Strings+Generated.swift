@@ -10,6 +10,46 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  internal enum Action {
+    /// Open settings
+    internal static let openSettings = L10n.tr("Localizable", "Action.OpenSettings", fallback: "Open settings")
+    internal enum Cancel {
+      /// Cancel
+      internal static let verb = L10n.tr("Localizable", "Action.Cancel.Verb", fallback: "Cancel")
+    }
+  }
+  internal enum LocationServices {
+    internal enum Warning {
+      /// Location services available
+      internal static let available = L10n.tr("Localizable", "LocationServices.Warning.Available", fallback: "Location services available")
+      /// Location services denied
+      internal static let denied = L10n.tr("Localizable", "LocationServices.Warning.Denied", fallback: "Location services denied")
+    }
+  }
+  internal enum MoonPhase {
+    internal enum Text {
+      /// first quarter
+      internal static let firstQuarter = L10n.tr("Localizable", "MoonPhase.Text.FirstQuarter", fallback: "first quarter")
+      /// full moon
+      internal static let fullMoon = L10n.tr("Localizable", "MoonPhase.Text.FullMoon", fallback: "full moon")
+      /// last quarter
+      internal static let lastQuarter = L10n.tr("Localizable", "MoonPhase.Text.LastQuarter", fallback: "last quarter")
+      /// new moon
+      internal static let newMoon = L10n.tr("Localizable", "MoonPhase.Text.NewMoon", fallback: "new moon")
+      /// waning moon
+      internal static let waningMoon = L10n.tr("Localizable", "MoonPhase.Text.WaningMoon", fallback: "waning moon")
+      /// waxing crescent
+      internal static let waxingCrescent = L10n.tr("Localizable", "MoonPhase.Text.WaxingCrescent", fallback: "waxing crescent")
+    }
+  }
+  internal enum NetworkConnection {
+    internal enum Warning {
+      /// Connected
+      internal static let connected = L10n.tr("Localizable", "NetworkConnection.Warning.Connected", fallback: "Connected")
+      /// Network connection unavailable
+      internal static let unavailable = L10n.tr("Localizable", "NetworkConnection.Warning.Unavailable", fallback: "Network connection unavailable")
+    }
+  }
   internal enum PresentableError {
     /// Connection lost.
     internal static let connectionLost = L10n.tr("Localizable", "PresentableError.ConnectionLost", fallback: "Connection lost.")
@@ -38,6 +78,14 @@ internal enum L10n {
     /// Please add "%@.svg" at "Resources/Icons" project folder.
     internal static func notFoundIcon(_ p1: Any) -> String {
       return L10n.tr("Localizable", "SvgResourceError.NotFoundIcon", String(describing: p1), fallback: "Please add \"%@.svg\" at \"Resources/Icons\" project folder.")
+    }
+  }
+  internal enum WeatherController {
+    internal enum Alert {
+      internal enum LocationServicesDenied {
+        /// To determine your current location, you need to turn on location services in the app's settings.
+        internal static let message = L10n.tr("Localizable", "WeatherController.Alert.LocationServicesDenied.Message", fallback: "To determine your current location, you need to turn on location services in the app's settings.")
+      }
     }
   }
 }

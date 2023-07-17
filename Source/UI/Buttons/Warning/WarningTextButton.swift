@@ -45,12 +45,17 @@ final class WarningTextButton: UIControl, NibOwnerLoadable {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        loadNibContent()
+        commonInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    private func commonInit() {
         loadNibContent()
+        titleLabel.superview?.isUserInteractionEnabled = false
     }
 
     // MARK: - Animations support
@@ -116,11 +121,17 @@ extension WarningTextButton: Connectable {
 
         bindInputs(model)
         bindOutputs(model)
+
+        updateColors()
+
+        animated = true
     }
 
     func disconnect() {
         bag = .init()
         modelBag = nil
+
+        animated = false
     }
 
     private func bindInputs(_ model: Model) {

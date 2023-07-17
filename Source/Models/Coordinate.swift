@@ -7,11 +7,15 @@
 
 import CoreLocation
 
-struct Coordinate: Codable {
+extension Coordinate {
+    static let `default` = Self(lat: 55.7522, lon: 37.6156)
+}
+
+struct Coordinate: Codable, Equatable {
     let lat: CGFloat
     let lon: CGFloat
 
-    func location() -> CLLocationCoordinate2D {
+    func locationCoordinate() -> CLLocationCoordinate2D {
         .init(
             latitude: lat,
             longitude: lon
@@ -20,5 +24,10 @@ struct Coordinate: Codable {
 }
 
 extension Coordinate {
-    static let `default` = Self(lat: 55.7522, lon: 37.6156)
+    init(locationCoordinate: CLLocationCoordinate2D) {
+        self.init(
+            lat: locationCoordinate.latitude,
+            lon: locationCoordinate.longitude
+        )
+    }
 }

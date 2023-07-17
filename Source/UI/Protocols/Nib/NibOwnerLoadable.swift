@@ -46,7 +46,7 @@ extension NibOwnerLoadable where Self: UIView {
                     toItem: self,
                     attribute: attribute,
                     multiplier: 1,
-                    constant: 0.0
+                    constant: 0
                 )
             }
             NSLayoutConstraint.activate(constraints)

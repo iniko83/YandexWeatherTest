@@ -20,7 +20,7 @@ extension Weather {
                     urlQuery: [
                         "lat": coordinate.lat,
                         "lon": coordinate.lon,
-                        "lang": "ru_RU",
+                        "lang": "en_US",
                         "limit": 7,
                         "hours": true,
                         "extra": false

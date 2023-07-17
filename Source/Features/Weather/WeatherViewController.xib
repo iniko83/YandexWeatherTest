@@ -30,13 +30,6 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akA-MT-0ab">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKU-3d-PEf" customClass="WarningTextButton" customModule="YandexWeatherTest" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="-30" width="393" height="30"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="JKF-JZ-nNf"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xB5-9S-5FW" customClass="WeatherFactView" customModule="YandexWeatherTest" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="366"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,6 +39,13 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Rm6-jp-FIp" secondAttribute="height" multiplier="1:1" id="2IE-35-VTy"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKU-3d-PEf" customClass="WarningTextButton" customModule="YandexWeatherTest" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="-30" width="393" height="30"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="JKF-JZ-nNf"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-vO-ee1" customClass="ConnectionStatusView" customModule="YandexWeatherTest" customModuleProvider="target">
