@@ -37,6 +37,8 @@
 		1A3145CC2A5F801A005505B4 /* SvgImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145CB2A5F801A005505B4 /* SvgImageRenderer.swift */; };
 		1A3145D12A5F963D005505B4 /* SvgDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145D02A5F963D005505B4 /* SvgDataLoader.swift */; };
 		1A3145D42A5FA800005505B4 /* SvgImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3145D32A5FA800005505B4 /* SvgImageView.swift */; };
+		1A5B22202A663FE800902BED /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5B221F2A663FE800902BED /* ActivityIndicatorView.swift */; };
+		1A5B22242A6645B400902BED /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5B22232A6645B400902BED /* CGRect+Extensions.swift */; };
 		1A901FD42A5C1221004DE28C /* MvpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A901FD32A5C1221004DE28C /* MvpViewController.swift */; };
 		1A99A47E2A5DF31A00981136 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99A47D2A5DF31A00981136 /* UIView+Extensions.swift */; };
 		1AA751912A5C6C1A005C4128 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA751902A5C6C1A005C4128 /* ConnectionStatusView.swift */; };
@@ -138,6 +140,8 @@
 		1A3145CB2A5F801A005505B4 /* SvgImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgImageRenderer.swift; sourceTree = "<group>"; };
 		1A3145D02A5F963D005505B4 /* SvgDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgDataLoader.swift; sourceTree = "<group>"; };
 		1A3145D32A5FA800005505B4 /* SvgImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgImageView.swift; sourceTree = "<group>"; };
+		1A5B221F2A663FE800902BED /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		1A5B22232A6645B400902BED /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		1A901FD32A5C1221004DE28C /* MvpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MvpViewController.swift; sourceTree = "<group>"; };
 		1A99A47D2A5DF31A00981136 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		1AA751902A5C6C1A005C4128 /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
@@ -389,6 +393,14 @@
 			path = SvgImage;
 			sourceTree = "<group>";
 		};
+		1A5B221E2A663FDD00902BED /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				1A5B221F2A663FE800902BED /* ActivityIndicatorView.swift */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
 		1A901FD22A5C11E9004DE28C /* MVP */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA751972A5C71B9005C4128 /* CGSize+Extensions.swift */,
+				1A5B22232A6645B400902BED /* CGRect+Extensions.swift */,
 			);
 			path = CoreFoundation;
 			sourceTree = "<group>";
@@ -687,6 +700,7 @@
 		1ABEC18C2A5B804F0049755E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1A5B221E2A663FDD00902BED /* ActivityIndicator */,
 				1A1E5B9B2A5D67800088CA32 /* ConnectionStatus */,
 				1A3145D22A5FA7EC005505B4 /* SvgImage */,
 			);
@@ -888,6 +902,7 @@
 				1ABE920A2A59B38200E82ABA /* Temperature.swift in Sources */,
 				1A2538A92A5E486F00775FCD /* SvgImageName.swift in Sources */,
 				1AA751AD2A5CBDE8005C4128 /* NibOwnerLoadable.swift in Sources */,
+				1A5B22202A663FE800902BED /* ActivityIndicatorView.swift in Sources */,
 				1ABEC1762A5B55E50049755E /* ApiResponse+Rx.swift in Sources */,
 				1AA751982A5C71B9005C4128 /* CGSize+Extensions.swift in Sources */,
 				1AA751952A5C6E39005C4128 /* UIAnimator+Utility.swift in Sources */,
@@ -895,6 +910,7 @@
 				1A25389A2A5E252600775FCD /* SvgImageProviderInteractor.swift in Sources */,
 				1ABEC16F2A5B4AF00049755E /* WeatherNetworkInteractor.swift in Sources */,
 				1ABEC18A2A5B7EE40049755E /* UICollectionView+Extensions.swift in Sources */,
+				1A5B22242A6645B400902BED /* CGRect+Extensions.swift in Sources */,
 				1AB3242A2A60F0DA00035833 /* WeatherForecastView.swift in Sources */,
 				1ABEC18F2A5B80750049755E /* WeatherFactView.swift in Sources */,
 				1ABE62F42A57DF43007E83AD /* SceneDelegate.swift in Sources */,

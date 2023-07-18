@@ -123,7 +123,7 @@ final class SvgImageRenderer {
         )
         navigationDelegates[info] = navigationDelegate
 
-        let frame = CGRect(origin: .zero, size: size)
+        let frame = CGRect(size: size)
         let webView = WKWebView(frame: frame)
         webView.isOpaque = false
         webView.backgroundColor = .clear
