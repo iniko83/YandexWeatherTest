@@ -11,14 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController" customModule="YandexWeatherTest" customModuleProvider="target">
             <connections>
-                <outlet property="connectionStatusHideConstraint" destination="3Ml-IU-Pvc" id="WLO-Bx-Pqi"/>
+                <outlet property="connectionStatusHideConstraint" destination="Hyf-Ip-TFZ" id="Nld-3V-NRz"/>
                 <outlet property="connectionStatusView" destination="W8q-vO-ee1" id="Glr-yn-DRr"/>
                 <outlet property="contentView" destination="akA-MT-0ab" id="mad-M8-MnS"/>
                 <outlet property="factView" destination="xB5-9S-5FW" id="Ccn-ov-2GS"/>
                 <outlet property="forecastView" destination="Rm6-jp-FIp" id="DHl-6h-QIF"/>
                 <outlet property="indicationContainerView" destination="oHy-8v-dvF" id="b05-iG-gVr"/>
                 <outlet property="locationAuthStatusButton" destination="FKU-3d-PEf" id="SJc-dd-jeg"/>
-                <outlet property="locationAuthStatusHideConstraint" destination="yjb-Zs-Ufr" id="WB5-XI-md2"/>
+                <outlet property="locationAuthStatusHideConstraint" destination="gcx-Kk-Rvs" id="Qch-FS-XJN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="2tx-f6-h6h"/>
             </connections>
         </placeholder>
@@ -41,38 +41,30 @@
                                 <constraint firstAttribute="width" secondItem="Rm6-jp-FIp" secondAttribute="height" multiplier="1:1" id="2IE-35-VTy"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKU-3d-PEf" customClass="WarningTextButton" customModule="YandexWeatherTest" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="-30" width="393" height="30"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="JKF-JZ-nNf"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-vO-ee1" customClass="ConnectionStatusView" customModule="YandexWeatherTest" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="759" width="393" height="30"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="FKU-3d-PEf" firstAttribute="leading" secondItem="akA-MT-0ab" secondAttribute="leading" id="2YM-2Z-6Qa"/>
                         <constraint firstItem="Rm6-jp-FIp" firstAttribute="leading" secondItem="akA-MT-0ab" secondAttribute="leading" id="3Iq-7B-ixW"/>
-                        <constraint firstAttribute="bottom" secondItem="W8q-vO-ee1" secondAttribute="top" id="3Ml-IU-Pvc"/>
                         <constraint firstItem="xB5-9S-5FW" firstAttribute="top" secondItem="akA-MT-0ab" secondAttribute="top" id="5bz-Ob-24Y"/>
-                        <constraint firstItem="W8q-vO-ee1" firstAttribute="leading" secondItem="akA-MT-0ab" secondAttribute="leading" id="Dy2-xX-rax"/>
-                        <constraint firstAttribute="bottom" secondItem="W8q-vO-ee1" secondAttribute="bottom" priority="500" id="FWh-5l-CmX"/>
                         <constraint firstAttribute="trailing" secondItem="Rm6-jp-FIp" secondAttribute="trailing" id="PQM-K9-kJN"/>
                         <constraint firstItem="xB5-9S-5FW" firstAttribute="leading" secondItem="akA-MT-0ab" secondAttribute="leading" id="TJi-FM-JjV"/>
                         <constraint firstAttribute="trailing" secondItem="xB5-9S-5FW" secondAttribute="trailing" id="WEY-Df-K7f"/>
-                        <constraint firstAttribute="trailing" secondItem="W8q-vO-ee1" secondAttribute="trailing" id="bOn-P4-WBB"/>
                         <constraint firstItem="Rm6-jp-FIp" firstAttribute="top" secondItem="xB5-9S-5FW" secondAttribute="bottom" id="bZN-oq-kU6"/>
-                        <constraint firstAttribute="trailing" secondItem="FKU-3d-PEf" secondAttribute="trailing" id="fto-Hx-BdU"/>
                         <constraint firstAttribute="bottom" secondItem="Rm6-jp-FIp" secondAttribute="bottom" id="tKt-HS-ajp"/>
-                        <constraint firstItem="FKU-3d-PEf" firstAttribute="top" secondItem="akA-MT-0ab" secondAttribute="top" priority="800" id="vfd-E1-TOc"/>
-                        <constraint firstItem="FKU-3d-PEf" firstAttribute="bottom" secondItem="akA-MT-0ab" secondAttribute="top" id="yjb-Zs-Ufr"/>
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHy-8v-dvF">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKU-3d-PEf" customClass="WarningTextButton" customModule="YandexWeatherTest" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="29" width="393" height="30"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="JKF-JZ-nNf"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-vO-ee1" customClass="ConnectionStatusView" customModule="YandexWeatherTest" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="818" width="393" height="30"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -80,11 +72,19 @@
             <constraints>
                 <constraint firstItem="oHy-8v-dvF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2IG-0G-orA"/>
                 <constraint firstItem="oHy-8v-dvF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EqA-Z4-obG"/>
+                <constraint firstItem="FKU-3d-PEf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" priority="800" id="HnD-os-cGu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W8q-vO-ee1" secondAttribute="top" id="Hyf-Ip-TFZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="oHy-8v-dvF" secondAttribute="bottom" id="KVu-Pe-GOl"/>
                 <constraint firstItem="akA-MT-0ab" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="QoD-3r-z6C"/>
+                <constraint firstItem="FKU-3d-PEf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UyT-K6-saU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oHy-8v-dvF" secondAttribute="trailing" id="Vaj-k3-Z0u"/>
+                <constraint firstItem="W8q-vO-ee1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zfd-Rk-9Q4"/>
+                <constraint firstItem="FKU-3d-PEf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="aSD-rn-wrh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="akA-MT-0ab" secondAttribute="trailing" id="dhA-Pc-qDV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="akA-MT-0ab" secondAttribute="bottom" id="dm3-ok-Apj"/>
+                <constraint firstItem="FKU-3d-PEf" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gcx-Kk-Rvs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W8q-vO-ee1" secondAttribute="bottom" priority="500" id="nWO-xc-7ej"/>
+                <constraint firstAttribute="trailing" secondItem="W8q-vO-ee1" secondAttribute="trailing" id="qAj-s8-xSN"/>
                 <constraint firstItem="akA-MT-0ab" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xPU-Gk-fxk"/>
             </constraints>
             <point key="canvasLocation" x="132" y="-11"/>

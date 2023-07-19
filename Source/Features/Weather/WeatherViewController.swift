@@ -117,31 +117,40 @@ extension WeatherViewController: WeatherView {
     }
 
     func updateLocationAvailabilityStatus(isShowing: Bool) {
-        updateConstraint(
-            locationAuthStatusHideConstraint,
-            isActive: !isShowing
+        updateWarningView(
+            locationAuthStatusButton,
+            hideConstraint: locationAuthStatusHideConstraint,
+            isShowing: isShowing
         )
     }
 
     func updateNetworkAvailabilityStatus(isShowing: Bool) {
-        updateConstraint(
-            connectionStatusHideConstraint,
-            isActive: !isShowing
+        updateWarningView(
+            connectionStatusView,
+            hideConstraint: connectionStatusHideConstraint,
+            isShowing: isShowing
         )
     }
 
     // MARK: -
-    private func updateConstraint(
-        _ constraint: NSLayoutConstraint,
-        isActive: Bool
+    private func updateWarningView(
+        _ view: UIView,
+        hideConstraint: NSLayoutConstraint,
+        isShowing: Bool
     ) {
-        guard constraint.isActive != isActive else { return }
+        hideConstraint.isActive = !isShowing
+        view.isHidden = false
 
-        constraint.isActive = isActive
         UIAnimator.animate(
             animated: animated,
             kind: .updateCollection,
-            animations: { self.view.layoutIfNeeded() }
+            animations: {
+                view.alpha = isShowing ? 1 : 0
+                self.view.layoutIfNeeded()
+            },
+            completion: {
+                view.isHidden = !isShowing
+            }
         )
     }
 }
