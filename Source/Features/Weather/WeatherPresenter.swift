@@ -17,24 +17,21 @@ protocol WeatherPresenterViewActions: AnyObject {
     func viewDidAppear()
 }
 
-protocol WeatherPresenterViewDataSource {
-    var isLocationServicesDenied: BehaviorRelay<Bool> { get }
-    var isNetworkAvailable: BehaviorRelay<Bool> { get }
-}
-
 extension WeatherPresenter {
     typealias View = WeatherViewController
 }
 
 final class WeatherPresenter: MvpPresenter {
     private var bag = DisposeBag()
-    private let model: Model
+    private var requestForecastBag = DisposeBag()
     private var requestLocationBag = DisposeBag()
+    private let model: Model
 
     var view: WeatherViewController?
 
     private let locationInteractor: LocationInteractor = Resolver.resolve()
     private let networkAvailabilityInteractor: NetworkAvailabilityInteractor = Resolver.resolve()
+    private let weatherNetworkInteractor: WeatherNetworkInteractor = Resolver.resolve()
 
     private var isViewDidAppear = false
 
@@ -67,6 +64,31 @@ final class WeatherPresenter: MvpPresenter {
         isViewDidAppear = false
     }
 
+    // MARK: - Request Forecast
+    private func onRequestForecastSuccess(_ value: Weather.Response) {
+        model.weatherResponse.accept(value)
+    }
+
+    private func requestForecast(_ coordinate: Coordinate) {
+        requestForecastBag = .init()
+
+        let response = weatherNetworkInteractor
+            .fetchRequest(.forecast(coordinate))
+            .asObservable()
+            .share(replay: 1)
+
+        response
+            .subscribe(onNext: { [unowned self] value in
+                self.onRequestForecastSuccess(value)
+            })
+            .disposed(by: requestForecastBag)
+
+        response
+            .loadingState()
+            .bind(to: model.weatherLoadingState)
+            .disposed(by: requestForecastBag)
+    }
+
     // MARK: - Request location
     private func isNeedRequestLocation() -> Bool {
         model.weatherCoordinate.value?.isDefault ?? true
@@ -90,7 +112,8 @@ final class WeatherPresenter: MvpPresenter {
     private func requestLocation() {
         requestLocationBag = .init()
 
-        locationInteractor.requestLocation()
+        locationInteractor
+            .requestLocation()
             .subscribe(
                 onSuccess: { [unowned self] value in self.onRequestLocationSuccess(value) },
                 onFailure: { [unowned self] error in self.onRequestLocationFailure(error) }
@@ -160,6 +183,14 @@ extension WeatherPresenter: WeatherPresenterViewDataSource {
     var isNetworkAvailable: BehaviorRelay<Bool> {
         get { model.isNetworkAvailable }
     }
+
+    var weatherLoadingState: BehaviorRelay<LoadingState?> {
+        get { model.weatherLoadingState }
+    }
+
+    var weatherResponse: BehaviorRelay<Weather.Response?> {
+        get { model.weatherResponse }
+    }
 }
 
 extension WeatherPresenter: Connectable {
@@ -172,10 +203,13 @@ extension WeatherPresenter: Connectable {
         let isNetworkAvailable: BehaviorRelay<Bool>
 
         let weatherCoordinate: BehaviorRelay<WeatherCoordinate?>
+        let weatherLoadingState: BehaviorRelay<LoadingState?>
+        let weatherResponse: BehaviorRelay<Weather.Response?>
     }
 
     func connect(_ model: Model) {
         bindViewUpdates(model)
+        bindForecastRequests(model)
         bindLocationRequests(model)
 
         requestLocationIfRequired()
@@ -183,7 +217,39 @@ extension WeatherPresenter: Connectable {
 
     func disconnect() {
         bag = .init()
+        requestForecastBag = .init()
         requestLocationBag = .init()
+    }
+
+    private func bindForecastRequests(_ model: Model) {
+        let coordinate = model.weatherCoordinate
+            .compactMap { $0?.coordinate }
+            .distinctUntilChanged()
+            .share(replay: 1)
+
+        let coordinateViaReconnection = model.isNetworkAvailable
+            .filter { $0 }
+            .withLatestFrom(model.weatherLoadingState)
+            .filter { loadingState in
+                loadingState?.isRetryableError() ?? false
+            }
+            .withLatestFrom(coordinate)
+
+        Observable
+            .merge(
+                coordinate,
+                coordinateViaReconnection
+            )
+            .subscribe(onNext: { [unowned self] coordinate in
+                self.requestForecast(coordinate)
+            })
+            .disposed(by: bag)
+    }
+
+    private func bindLocationRequests(_ model: Model) {
+        model.requestLocation
+            .subscribe(onNext: { [unowned self] in self.requestLocation() })
+            .disposed(by: bag)
     }
 
     private func bindViewUpdates(_ model: Model) {
@@ -199,12 +265,6 @@ extension WeatherPresenter: Connectable {
             })
             .disposed(by: bag)
     }
-
-    private func bindLocationRequests(_ model: Model) {
-        model.requestLocation
-            .subscribe(onNext: { [unowned self] in self.requestLocation() })
-            .disposed(by: bag)
-    }
 }
 
 extension WeatherPresenter.Model {
@@ -218,5 +278,8 @@ extension WeatherPresenter.Model {
         self.isNetworkAvailable = isNetworkAvailable
 
         weatherCoordinate = .init()
+        weatherResponse = .init()
+
+        weatherLoadingState = .init()
     }
 }

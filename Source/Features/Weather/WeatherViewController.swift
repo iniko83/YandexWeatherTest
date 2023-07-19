@@ -7,9 +7,17 @@
 
 import RxSwift
 
+extension WeatherViewController {
+    typealias DataSource = WeatherPresenterViewDataSource
+    typealias IndicationManager = IndicationViewManager<WeatherIndicationViewProvider>
+    typealias Model = Presenter
+}
+
 @IBDesignable
 final class WeatherViewController: MvpViewController<WeatherPresenter>, MvpView {
     private var bag = DisposeBag()
+
+    private let indicationManager = IndicationManager()
 
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var indicationContainerView: UIView!
@@ -25,10 +33,23 @@ final class WeatherViewController: MvpViewController<WeatherPresenter>, MvpView 
 
     private var animated = false
 
+    private var isConnected = false
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+
+        let isControllerDisplaying = animated
+        if !isControllerDisplaying {
+            disconnect()
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        bindViews()
+        if !isConnected, let model = presenter {
+            bind(model)
+        }
 
         self.animated = true
     }
@@ -43,17 +64,42 @@ final class WeatherViewController: MvpViewController<WeatherPresenter>, MvpView 
 
         self.animated = false
     }
+}
 
-    // MARK: -
-    private func bindViews() {
+extension WeatherViewController: Connectable {
+    func connect(_ model: WeatherPresenter) {
+        let dataSource = model as DataSource
+
+        indicationManager.bind(indicationManagerModel(dataSource))
+
+        bindViews(model)
+
+        isConnected = true
+    }
+
+    func disconnect() {
         bag = .init()
 
-        guard
-            let model: WeatherPresenterViewDataSource = presenter,
-            let actions: WeatherPresenterViewActions = presenter
-        else { return }
+        isConnected = false
+    }
+
+    // MARK: - Models
+    private func indicationManagerModel(_ dataSource: DataSource) -> IndicationManager.Model {
+        .init(
+            tag: dataSource.weatherLoadingState,
+            provider: .init(dataSource: dataSource),
+            containerView: indicationContainerView,
+            hideableContentView: contentView
+        )
+    }
+
+    // MARK: -
+    private func bindViews(_ model: Model) {
+        bag = .init()
 
         connectionStatusView.bind(model.connectionStatusViewModel())
+
+        let actions = model as WeatherPresenterViewActions
         locationAuthStatusButton.bind(model.locationAuthStatusButtonModel(actions))
     }
 }
@@ -97,35 +143,5 @@ extension WeatherViewController: WeatherView {
             kind: .updateCollection,
             animations: { self.view.layoutIfNeeded() }
         )
-    }
-}
-
-fileprivate extension WeatherPresenterViewDataSource {
-    typealias Actions = WeatherPresenterViewActions
-
-    func connectionStatusViewModel() -> ConnectionStatusView.Model {
-        .init(isConnected: isNetworkAvailable)
-    }
-
-    func locationAuthStatusButtonModel(_ actions: Actions) -> WarningTextButton.Model {
-        let result = WarningTextButton.Model(isEnabled: isLocationServicesDenied)
-        let bag = result.bag
-
-        isLocationServicesDenied
-            .map { isDenied in
-                isDenied
-                    ? L10n.LocationServices.Warning.denied
-                    : L10n.LocationServices.Warning.available
-            }
-            .bind(to: result.text)
-            .disposed(by: bag)
-
-        result.tap
-            .subscribe(onNext: { [weak actions] in
-                actions?.tapOnDeniedLocationServices()
-            })
-            .disposed(by: bag)
-
-        return result
     }
 }

@@ -5,8 +5,7 @@
 //  Created by Igor Nikolaev on 18.07.2023.
 //
 
-import RxCocoa
-import RxSwift
+import UIKit
 
 // NOTE: Based on: https://github.com/ninjaprox/NVActivityIndicatorView
 
@@ -59,7 +58,7 @@ final class ActivityIndicatorView: UIView {
     }
 
     private func updateLayerDimensionsIfNeeded() {
-        let side = min(bounds.width, bounds.height)
+        let side = bounds.size.minimumSide()
 
         guard layerSide != side else { return }
 

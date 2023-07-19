@@ -20,6 +20,7 @@ extension UIAnimator {
 extension UIAnimator {
     enum Kind: Int {
         case color
+        case indication
         case updateCollection
 
         func animator() -> Animator {
@@ -29,6 +30,12 @@ extension UIAnimator {
                 result = .init(
                     duration: .color,
                     timingParameters: Parameters.color
+                )
+
+            case .indication:
+                result = .init(
+                    duration: .indication,
+                    timingParameters: Parameters.indication
                 )
 
             case .updateCollection:
@@ -156,11 +163,16 @@ private enum Parameters {
         controlPoint2: .init(x: 0.25, y: 1)
     )
 
+    static let indication = UICubicTimingParameters(
+        controlPoint1: .init(x: 0.3, y: 0.43),
+        controlPoint2: .init(x: 0.63, y: 1)
+    )
+
     static let updateCollection = UICubicTimingParameters(animationCurve: .easeInOut)
 }
 
 private extension TimeInterval {
     static let color: TimeInterval = 0.25
+    static let indication: TimeInterval = 0.4
     static let updateCollection: TimeInterval = 0.3
 }
-

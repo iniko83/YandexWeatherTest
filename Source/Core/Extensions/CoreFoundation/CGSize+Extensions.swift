@@ -24,3 +24,9 @@ extension CGSize {
         )
     }
 }
+
+extension CGSize {
+    func minimumSide() -> CGFloat {
+        min(width, height)
+    }
+}

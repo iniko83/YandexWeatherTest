@@ -74,13 +74,6 @@ extension SceneDelegate {
         let view = svgRendererContainerView
         view.alpha = 0
 
-        view.translatesAutoresizingMaskIntoConstraints = false
-        window.addSubview(view)
-        NSLayoutConstraint.activate([
-            view.leadingAnchor.constraint(equalTo: window.safeAreaLayoutGuide.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: window.safeAreaLayoutGuide.trailingAnchor),
-            view.topAnchor.constraint(equalTo: window.safeAreaLayoutGuide.topAnchor),
-            view.bottomAnchor.constraint(equalTo: window.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        window.snapToEdgesAndAddSubview(view)
     }
 }
