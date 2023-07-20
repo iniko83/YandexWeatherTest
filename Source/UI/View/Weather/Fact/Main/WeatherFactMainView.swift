@@ -32,9 +32,9 @@ extension WeatherFactMainView: Connectable {
     func connect(_ model: Model) {
         updateData(model)
 
-        detailsView.bind(model.detailsViewModel())
-        forecastIndexSelectionView.bind(model.forecastIndexSelectionViewModel())
-        locationView.bind(model.locationViewModel())
+        detailsView.connect(model.detailsViewModel())
+        forecastIndexSelectionView.connect(model.forecastIndexSelectionViewModel())
+        locationView.connect(model.locationViewModel())
     }
 
     func disconnect() {

@@ -72,7 +72,10 @@ final class WeatherPresenter: MvpPresenter {
 
     // MARK: - Request Forecast
     private func onRequestForecastSuccess(_ value: Weather.Response) {
+        let localityName = value.locality.name
+
         model.weatherResponse.accept(value)
+        model.localityName.accept(localityName)
     }
 
     private func requestForecast(_ coordinate: Coordinate) {

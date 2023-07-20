@@ -41,6 +41,21 @@ final class SvgImageButton: UIControl {
         }
     }
 
+    // MARK: - Init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        snapToEdgesAndAddSubview(imageView)
+    }
+
     // MARK: - Animations support
     private func isColorsAnimated() -> Bool {
         isHighlighted && isEnabled
@@ -161,13 +176,13 @@ extension SvgImageButton {
             switch state {
             case .highlighted:
                 result = isDefault()
-                    ? UIColor.systemOrange.withAlphaComponent(0.75)
+                    ? Asset.Assets.warningOrange.color.withAlphaComponent(0.75)
                     : UIColor.systemRed.withAlphaComponent(0.75)
             case .disabled:
-                result = UIColor.systemGray.withAlphaComponent(0.15)
+                result = Asset.Assets.text.color.withAlphaComponent(0.5)
             default:
                 result = isDefault()
-                    ? UIColor.systemGray
+                    ? Asset.Assets.text.color
                     : UIColor.systemRed
             }
             return result

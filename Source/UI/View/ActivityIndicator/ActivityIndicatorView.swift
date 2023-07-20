@@ -84,6 +84,7 @@ final class ActivityIndicatorView: UIView {
         let radius = 0.45 * side
 
         let layer = activityLayer
+
         layer.lineWidth = lineWidth
         layer.path = shapePath(radius: radius)
         layer.bounds = .init(center: .zero, size: .init(side: side))

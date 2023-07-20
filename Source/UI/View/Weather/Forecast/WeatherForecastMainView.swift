@@ -41,8 +41,8 @@ extension WeatherForecastMainView: Connectable {
 
         bindInputs(model)
 
-        kindSelectionView.bind(model.kindSelectionViewModel())
-        tableContainerView.bind(model.tableContainerViewModel())
+        kindSelectionView.connect(model.kindSelectionViewModel())
+        tableContainerView.connect(model.tableContainerViewModel())
     }
 
     func disconnect() {

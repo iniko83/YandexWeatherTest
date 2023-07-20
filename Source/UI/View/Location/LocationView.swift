@@ -48,7 +48,7 @@ extension LocationView: Connectable {
         let attentionColor = model.attentionColor
 
         model.isAttention
-            .map { $0 ? color : attentionColor }
+            .map { $0 ? attentionColor : color }
             .subscribe(onNext: { [unowned self] value in self.localityLabel.textColor = value } )
             .disposed(by: bag)
 
@@ -82,6 +82,7 @@ extension LocationView {
                 tap: tap,
                 name: .local(.location)
             )
+            let bag = result.bag
 
             isAttention
                 .map { $0 ? .attention : .default }
