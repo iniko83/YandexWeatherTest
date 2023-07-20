@@ -33,6 +33,10 @@ final class IndicationLoadingView: UIView {
 
         shimmerView.frame = bounds
 
+        layoutActivityIndicatorView()
+    }
+
+    private func layoutActivityIndicatorView() {
         let side = 0.5 * bounds.size.minimumSide()
         activityIndicatorView.frame = .init(
             center: bounds.center(),

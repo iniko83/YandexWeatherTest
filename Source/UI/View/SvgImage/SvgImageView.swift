@@ -18,9 +18,13 @@ extension SvgImageView {
 /* Отображает svg image, запрашивая нужный размер при изменении bounds (если в модели не указано иное). **/
 final class SvgImageView: UIImageView {
     private var bag = DisposeBag()
+    private var delayBag = DisposeBag()
     private var model: Model?
 
     private let imageProvider: ImageProvider = Resolver.resolve()
+
+    private weak var activityIndicationView: ActivityIndicatorView?
+    private var isActivityPrepareToShowing = false
 
     private var fetchStartTimestamp = TimeInterval.zero
     private var fetchFinishTimestamp = TimeInterval.zero
@@ -30,7 +34,19 @@ final class SvgImageView: UIImageView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+
+        layoutActivityIndicatorView()
+
         fetchImageByLayoutIfRequired()
+    }
+
+    private func layoutActivityIndicatorView() {
+        guard let view = activityIndicationView else { return }
+        let side = 0.5 * bounds.size.minimumSide()
+        view.frame = .init(
+            center: bounds.center(),
+            size: .init(side: side)
+        )
     }
 
     private func fetchImage(isPlaceholder: Bool = false) {
@@ -45,6 +61,8 @@ final class SvgImageView: UIImageView {
         bag = .init()
 
         fetchStartTimestamp = Date.currentTimestamp()
+
+        showActivity()
 
         imageProvider
             .fetchImage(info: info)
@@ -94,6 +112,8 @@ final class SvgImageView: UIImageView {
         _ receivedImage: UIImage,
         isPlaceholder: Bool
     ) {
+        hideActivity()
+
         guard let model else { return }
 
         isDisplayingPlaceholderImage = isPlaceholder
@@ -120,6 +140,38 @@ final class SvgImageView: UIImageView {
 
         let isObserve = isNeedObserveNetworkAvailability()
         observeNetworkAvailability(isObserve)
+    }
+
+    // MARK: - Activity support
+    private func hideActivity() {
+        isActivityPrepareToShowing = false
+        delayBag = .init()
+        activityIndicationView?.removeFromSuperview()
+    }
+
+    private func showActivity() {
+        guard !isActivityPrepareToShowing else { return }
+
+        isActivityPrepareToShowing = true
+
+        delayBag = .init()
+
+        Observable
+            .just(Void())
+            .delaySubscription(.activityDelay, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] in self.presentActivity() })
+            .disposed(by: delayBag)
+    }
+
+    private func presentActivity() {
+        let model = ActivityIndicatorView.Model(color: Asset.Assets.activity.color)
+        let activityIndicatorView = ActivityIndicatorView()
+        activityIndicatorView.connect(model)
+        addSubview(activityIndicatorView)
+
+        self.activityIndicationView = activityIndicatorView
+
+        setNeedsLayout()
     }
 
     // MARK: - Subscription support
@@ -230,4 +282,9 @@ extension SvgImageView.Model {
 private extension TimeInterval {
     static let fetchTransitionThreshold = 0.15
     static let transition = 0.3
+}
+
+// MARK: - Constants
+private extension RxTimeInterval {
+    static let activityDelay = RxTimeInterval.timeInterval(0.1)
 }
