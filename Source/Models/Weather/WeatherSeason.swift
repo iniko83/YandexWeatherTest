@@ -8,7 +8,7 @@
 import Foundation
 
 extension Weather {
-    enum Season: String, Codable {
+    enum Season: String, Codable, Equatable {
         case summer // лето
         case autumn // осень
         case winter // зима

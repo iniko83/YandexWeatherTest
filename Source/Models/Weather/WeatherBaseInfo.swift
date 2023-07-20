@@ -18,7 +18,7 @@ import Foundation
  **/
 
 extension Weather {
-    struct BaseInfo {
+    struct BaseInfo: Equatable {
         let temperaturesInfo: TemperaturesInfo
         let wind: Wind
 
@@ -26,6 +26,14 @@ extension Weather {
         let conditionIconAlias: String
         let pressure: Int
         let humidity: Int
+
+        func humidityString() -> String {
+            "\(humidity)%"
+        }
+
+        func pressureString() -> String {
+            .init(pressure)
+        }
     }
 }
 
@@ -59,5 +67,18 @@ extension Weather.BaseInfo: Codable {
         try container.encode(condition, forKey: .condition)
         try container.encode(pressure, forKey: .pressure)
         try container.encode(humidity, forKey: .humidity)
+    }
+}
+
+extension Weather.BaseInfo: DefaultInitializable {
+    init() {
+        self.init(
+            temperaturesInfo: .init(),
+            wind: .init(),
+            condition: .init(),
+            conditionIconAlias: .init(),
+            pressure: .zero,
+            humidity: .zero
+        )
     }
 }

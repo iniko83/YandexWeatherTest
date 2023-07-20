@@ -11,8 +11,12 @@ import RxRelay
 import RxSwift
 
 protocol WeatherPresenterViewActions: AnyObject {
+    func selectForecastKind(_ kind: Weather.Forecast.Kind)
+    func selectForecastIndex(_ index: Int)
+
     func tapOnCancelAtLocationDeniedAlert()
     func tapOnDeniedLocationServices()
+    func tapOnLocationButton()
 
     func viewDidAppear()
 }
@@ -96,7 +100,7 @@ final class WeatherPresenter: MvpPresenter {
 
     private func onRequestLocationSuccess(_ value: CLLocationCoordinate2D) {
         let coordinate = WeatherCoordinate(locationCoordinate: value)
-        model.weatherCoordinate.accept(coordinate)
+        model.weatherCoordinate.acceptDifferent(coordinate)
     }
 
     private func onRequestLocationFailure(_ error: Error) {
@@ -128,7 +132,7 @@ final class WeatherPresenter: MvpPresenter {
 
     private func setDefaultWeatherLocationIfNil() {
         guard model.weatherCoordinate.value == nil else { return }
-        model.weatherCoordinate.accept(.default)
+        model.weatherCoordinate.acceptDifferent(.default)
     }
 
     // MARK: - Subscription support
@@ -158,12 +162,29 @@ final class WeatherPresenter: MvpPresenter {
 }
 
 extension WeatherPresenter: WeatherPresenterViewActions {
+    func selectForecastIndex(_ index: Int) {
+        model.weatherForecastIndex.acceptDifferent(index)
+    }
+
+    func selectForecastKind(_ kind: Weather.Forecast.Kind) {
+        model.weatherForecastKind.acceptDifferent(kind)
+    }
+
     func tapOnCancelAtLocationDeniedAlert() {
         setDefaultWeatherLocationIfNil()
     }
 
     func tapOnDeniedLocationServices() {
         UIApplication.openSettings()
+    }
+
+    func tapOnLocationButton() {
+        let isDenied = locationInteractor.isDenied.value
+        if isDenied {
+            view?.showLocationDeniedAlert()
+        } else {
+            requestLocation()
+        }
     }
 
     func viewDidAppear() {
@@ -184,6 +205,22 @@ extension WeatherPresenter: WeatherPresenterViewDataSource {
         get { model.isNetworkAvailable }
     }
 
+    var localityName: BehaviorRelay<String?> {
+        get { model.localityName }
+    }
+
+    var weatherCoordinate: BehaviorRelay<WeatherCoordinate?> {
+        get { model.weatherCoordinate }
+    }
+
+    var weatherForecastKind: BehaviorRelay<Weather.Forecast.Kind> {
+        get { model.weatherForecastKind }
+    }
+
+    var weatherForecastIndex: BehaviorRelay<Int> {
+        get { model.weatherForecastIndex }
+    }
+
     var weatherLoadingState: BehaviorRelay<LoadingState?> {
         get { model.weatherLoadingState }
     }
@@ -202,7 +239,11 @@ extension WeatherPresenter: Connectable {
         let isLocationServicesDenied: BehaviorRelay<Bool>
         let isNetworkAvailable: BehaviorRelay<Bool>
 
+        let localityName: BehaviorRelay<String?>
+
         let weatherCoordinate: BehaviorRelay<WeatherCoordinate?>
+        let weatherForecastKind: BehaviorRelay<Weather.Forecast.Kind>
+        let weatherForecastIndex: BehaviorRelay<Int>
         let weatherLoadingState: BehaviorRelay<LoadingState?>
         let weatherResponse: BehaviorRelay<Weather.Response?>
     }
@@ -277,9 +318,12 @@ extension WeatherPresenter.Model {
         self.isLocationServicesDenied = isLocationServicesDenied
         self.isNetworkAvailable = isNetworkAvailable
 
-        weatherCoordinate = .init()
-        weatherResponse = .init()
+        localityName = .init()
 
+        weatherCoordinate = .init()
+        weatherForecastKind = .init()
+        weatherForecastIndex = .init()
         weatherLoadingState = .init()
+        weatherResponse = .init()
     }
 }

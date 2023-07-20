@@ -80,11 +80,87 @@ internal enum L10n {
       return L10n.tr("Localizable", "SvgResourceError.NotFoundIcon", String(describing: p1), fallback: "Please add \"%@.svg\" at \"Resources/Icons\" project folder.")
     }
   }
+  internal enum Text {
+    /// No forecast
+    internal static let noForecast = L10n.tr("Localizable", "Text.NoForecast", fallback: "No forecast")
+    /// Today
+    internal static let today = L10n.tr("Localizable", "Text.Today", fallback: "Today")
+    /// Tomorrow
+    internal static let tomorrow = L10n.tr("Localizable", "Text.Tomorrow", fallback: "Tomorrow")
+  }
+  internal enum Weather {
+    internal enum BaseInfo {
+      internal enum HeaderTitle {
+        /// Feels like
+        internal static let feelsLike = L10n.tr("Localizable", "Weather.BaseInfo.HeaderTitle.FeelsLike", fallback: "Feels like")
+        /// mmHg
+        internal static let pressure = L10n.tr("Localizable", "Weather.BaseInfo.HeaderTitle.Pressure", fallback: "mmHg")
+        /// Temp
+        internal static let temperature = L10n.tr("Localizable", "Weather.BaseInfo.HeaderTitle.Temperature", fallback: "Temp")
+      }
+    }
+    internal enum Forecast {
+      internal enum Identificator {
+        internal enum HalfDay {
+          internal enum Title {
+            /// day
+            internal static let day = L10n.tr("Localizable", "Weather.Forecast.Identificator.HalfDay.Title.Day", fallback: "day")
+            /// night
+            internal static let night = L10n.tr("Localizable", "Weather.Forecast.Identificator.HalfDay.Title.Night", fallback: "night")
+          }
+        }
+        internal enum QuarterDay {
+          internal enum Title {
+            /// day
+            internal static let day = L10n.tr("Localizable", "Weather.Forecast.Identificator.QuarterDay.Title.Day", fallback: "day")
+            /// evening
+            internal static let evening = L10n.tr("Localizable", "Weather.Forecast.Identificator.QuarterDay.Title.Evening", fallback: "evening")
+            /// morning
+            internal static let morning = L10n.tr("Localizable", "Weather.Forecast.Identificator.QuarterDay.Title.Morning", fallback: "morning")
+            /// night
+            internal static let night = L10n.tr("Localizable", "Weather.Forecast.Identificator.QuarterDay.Title.Night", fallback: "night")
+          }
+        }
+      }
+      internal enum Kind {
+        /// Day & Night
+        internal static let dayHalfs = L10n.tr("Localizable", "Weather.Forecast.Kind.DayHalfs", fallback: "Day & Night")
+        /// Times of day
+        internal static let dayQuarters = L10n.tr("Localizable", "Weather.Forecast.Kind.DayQuarters", fallback: "Times of day")
+        /// Hourly
+        internal static let hours = L10n.tr("Localizable", "Weather.Forecast.Kind.Hours", fallback: "Hourly")
+      }
+    }
+  }
   internal enum WeatherController {
     internal enum Alert {
       internal enum LocationServicesDenied {
         /// To determine your current location, you need to turn on location services in the app's settings.
         internal static let message = L10n.tr("Localizable", "WeatherController.Alert.LocationServicesDenied.Message", fallback: "To determine your current location, you need to turn on location services in the app's settings.")
+      }
+    }
+  }
+  internal enum Wind {
+    internal enum Direction {
+      internal enum Short {
+        /// c
+        internal static let calm = L10n.tr("Localizable", "Wind.Direction.Short.Calm", fallback: "c")
+        /// e
+        internal static let east = L10n.tr("Localizable", "Wind.Direction.Short.East", fallback: "e")
+        /// n
+        internal static let north = L10n.tr("Localizable", "Wind.Direction.Short.North", fallback: "n")
+        /// ne
+        internal static let northEast = L10n.tr("Localizable", "Wind.Direction.Short.NorthEast", fallback: "ne")
+        /// nw
+        internal static let northWest = L10n.tr("Localizable", "Wind.Direction.Short.NorthWest", fallback: "nw")
+        /// s
+        internal static let south = L10n.tr("Localizable", "Wind.Direction.Short.South", fallback: "s")
+        /// se
+        internal static let southEast = L10n.tr("Localizable", "Wind.Direction.Short.SouthEast", fallback: "se")
+        /// sw
+        internal static let southWest = L10n.tr("Localizable", "Wind.Direction.Short.SouthWest", fallback: "sw")
+        /// w
+        internal static let west = L10n.tr("Localizable", "Wind.Direction.Short.West", fallback: "w")
       }
     }
   }

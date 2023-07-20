@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherFactMainView" customModule="YandexWeatherTest" customModuleProvider="target">
+            <connections>
+                <outlet property="detailsView" destination="oI7-i1-Vo1" id="cmQ-84-3iA"/>
+                <outlet property="forecastIndexSelectionView" destination="Mdt-Pt-jL3" id="6St-vc-QRn"/>
+                <outlet property="locationView" destination="dDw-YE-bRN" id="Y31-N5-4J6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UiU-sm-zG5">
+                    <rect key="frame" x="16" y="16" width="361" height="724"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oI7-i1-Vo1" customClass="WeatherFactDetailsView" customModule="YandexWeatherTest" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="724"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="oI7-i1-Vo1" secondAttribute="trailing" id="EnE-1F-qsO"/>
+                        <constraint firstItem="oI7-i1-Vo1" firstAttribute="leading" secondItem="UiU-sm-zG5" secondAttribute="leading" id="Jqd-SR-dBj"/>
+                        <constraint firstItem="oI7-i1-Vo1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UiU-sm-zG5" secondAttribute="top" priority="800" id="MPS-hH-YgY"/>
+                        <constraint firstItem="oI7-i1-Vo1" firstAttribute="centerY" secondItem="UiU-sm-zG5" secondAttribute="centerY" id="ZL1-1e-sqi"/>
+                        <constraint firstItem="oI7-i1-Vo1" firstAttribute="top" secondItem="UiU-sm-zG5" secondAttribute="top" placeholder="YES" id="ccl-rx-aHP"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDw-YE-bRN" customClass="LocationView" customModule="YandexWeatherTest" customModuleProvider="target">
+                    <rect key="frame" x="16" y="756" width="361" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" placeholder="YES" id="yeI-sl-Zqb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdt-Pt-jL3" customClass="WeatherForecastIndexSelectionView" customModule="YandexWeatherTest" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="808" width="393" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" placeholder="YES" id="Vs6-ga-wIu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="UiU-sm-zG5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="2kE-Db-x71"/>
+                <constraint firstAttribute="bottom" secondItem="Mdt-Pt-jL3" secondAttribute="bottom" constant="12" id="5a6-z0-utv"/>
+                <constraint firstAttribute="trailing" secondItem="dDw-YE-bRN" secondAttribute="trailing" constant="16" id="7m7-KK-IzS"/>
+                <constraint firstAttribute="trailing" secondItem="Mdt-Pt-jL3" secondAttribute="trailing" id="8JR-cy-DWq"/>
+                <constraint firstItem="dDw-YE-bRN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="9d5-RI-xWS"/>
+                <constraint firstItem="dDw-YE-bRN" firstAttribute="top" secondItem="UiU-sm-zG5" secondAttribute="bottom" constant="16" id="OAE-6z-5xQ"/>
+                <constraint firstItem="Mdt-Pt-jL3" firstAttribute="top" secondItem="dDw-YE-bRN" secondAttribute="bottom" constant="12" id="Smf-bS-TZd"/>
+                <constraint firstAttribute="trailing" secondItem="UiU-sm-zG5" secondAttribute="trailing" constant="16" id="TOM-Xx-ffm"/>
+                <constraint firstItem="UiU-sm-zG5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="fhj-bi-CWY"/>
+                <constraint firstItem="Mdt-Pt-jL3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ha0-ge-SeF"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-11"/>
+        </view>
+    </objects>
+</document>

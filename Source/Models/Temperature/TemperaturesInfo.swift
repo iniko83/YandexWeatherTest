@@ -7,9 +7,42 @@
 
 import Foundation
 
-struct TemperaturesInfo {
+struct TemperaturesInfo: Equatable {
     let temperature: Temperature    // Температура, °C
     let feelsLike: Int              // Ощущаемая температура, °C
+
+    func feelsLikeString() -> String {
+        celciusString(feelsLike)
+    }
+
+    func currentTemperatureString() -> String {
+        let result: String
+        switch temperature {
+        case let .value(value), let .detailed(value, _, _):
+            result = celciusString(value)
+        }
+        return result
+    }
+
+    func temperatureString(separator: String = .endline) -> String {
+        let result: String
+        switch temperature {
+        case let .value(value):
+            result = celciusString(value)
+        case let .detailed(_, minimum, maximum):
+            result = celciusString(minimum)
+                + separator
+                + celciusString(maximum)
+        }
+        return result
+    }
+
+    private func celciusString(_ value: Int) -> String {
+        let string = "\(value)°"
+        return value > 0
+            ? "+" + string
+            : string
+    }
 }
 
 extension TemperaturesInfo: Codable {
@@ -32,4 +65,18 @@ extension TemperaturesInfo: Codable {
 
         try container.encode(feelsLike, forKey: .feelsLike)
     }
+}
+
+extension TemperaturesInfo: DefaultInitializable {
+    init() {
+        self.init(
+            temperature: .init(),
+            feelsLike: .zero
+        )
+    }
+}
+
+// MARK: - Constants
+private extension String {
+    static let endline = "\n"
 }

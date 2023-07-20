@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Daytime {
+struct Daytime: Equatable {
     let isDay: Bool
     let isPolar: Bool
 }

@@ -12,6 +12,14 @@ extension DateFormatter {
         .makeCurrentTimeZone(dateFormat: "yyyy-MM-dd")
     }()
 
+    static let weatherForecastShortTitle: DateFormatter = {
+        .makeCurrentTimeZone(dateFormat: "dd MMM")
+    }()
+
+    static let weatherForecastTitle: DateFormatter = {
+        .makeCurrentTimeZone(dateFormat: "EEEE, dd MMMM")
+    }()
+
     // MARK: -
     private static func makeCurrentTimeZone(dateFormat: String) -> DateFormatter {
         let result = DateFormatter()

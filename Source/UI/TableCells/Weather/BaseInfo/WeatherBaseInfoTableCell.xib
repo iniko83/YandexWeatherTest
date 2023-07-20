@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="WeatherBaseInfoTableCell" customModule="YandexWeatherTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r82-yU-pQx">
+                        <rect key="frame" x="12" y="0.0" width="369" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlp-Yu-Pu8">
+                                <rect key="frame" x="0.0" y="13.666666666666664" width="55.333333333333336" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-22° -24°" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNd-rX-Bm5">
+                                <rect key="frame" x="64.666666666666671" y="5.3333333333333321" width="36.666666666666671" height="33.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-20°" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qht-Kg-cYO">
+                                <rect key="frame" x="110.66666666666669" y="13.666666666666664" width="37" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHb-qu-4z3" customClass="SvgImageView" customModule="YandexWeatherTest" customModuleProvider="target">
+                                <rect key="frame" x="157.66666666666666" y="4.3333333333333321" width="35.333333333333343" height="35.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tHb-qu-4z3" secondAttribute="height" multiplier="1:1" id="NaP-Ka-kLy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="733" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMj-Tk-4WB">
+                                <rect key="frame" x="203" y="13.666666666666664" width="37" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88%" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9f-6l-kH1">
+                                <rect key="frame" x="249" y="13.666666666666664" width="37" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ksG-Lc-7Aa" customClass="WeatherWindInfoView" customModule="YandexWeatherTest" customModuleProvider="target">
+                                <rect key="frame" x="295.33333333333331" y="4.3333333333333321" width="73.666666666666686" height="35.333333333333343"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="tHb-qu-4z3" firstAttribute="centerX" secondItem="r82-yU-pQx" secondAttribute="centerX" multiplier="0.95" id="1ys-dt-ALO"/>
+                            <constraint firstItem="ksG-Lc-7Aa" firstAttribute="centerX" secondItem="r82-yU-pQx" secondAttribute="centerX" multiplier="1.8" id="2Ps-mN-EtR"/>
+                            <constraint firstItem="ksG-Lc-7Aa" firstAttribute="width" secondItem="r82-yU-pQx" secondAttribute="width" multiplier="0.2" id="753-3L-n6t"/>
+                            <constraint firstItem="tMj-Tk-4WB" firstAttribute="centerX" secondItem="r82-yU-pQx" secondAttribute="centerX" multiplier="1.2" id="8br-TT-ReQ"/>
+                            <constraint firstItem="tMj-Tk-4WB" firstAttribute="width" secondItem="r82-yU-pQx" secondAttribute="width" multiplier="0.1" id="Ble-LL-8L8"/>
+                            <constraint firstItem="tHb-qu-4z3" firstAttribute="height" secondItem="r82-yU-pQx" secondAttribute="height" multiplier="0.8" priority="800" id="Gao-pg-XKs"/>
+                            <constraint firstItem="uNd-rX-Bm5" firstAttribute="width" secondItem="r82-yU-pQx" secondAttribute="width" multiplier="0.1" id="IOq-4s-zxa"/>
+                            <constraint firstItem="uNd-rX-Bm5" firstAttribute="centerX" secondItem="r82-yU-pQx" secondAttribute="centerX" multiplier="0.45" id="J06-rd-2dH"/>
+                            <constraint firstAttribute="height" priority="800" constant="44" id="JnK-ZP-Pe5"/>
+                            <constraint firstItem="ksG-Lc-7Aa" firstAttribute="height" secondItem="r82-yU-pQx" secondAttribute="height" multiplier="0.8" priority="900" id="LRI-1T-hCq"/>
+                            <constraint firstItem="A9f-6l-kH1" firstAttribute="centerY" secondItem="r82-yU-pQx" secondAttribute="centerY" id="LyG-JH-1hT"/>
+                            <constraint firstItem="Qht-Kg-cYO" firstAttribute="centerY" secondItem="r82-yU-pQx" secondAttribute="centerY" id="NKb-C6-DZg"/>
+                            <constraint firstItem="Qht-Kg-cYO" firstAttribute="width" secondItem="r82-yU-pQx" secondAttribute="width" multiplier="0.1" id="NNG-GI-b3U"/>
+                            <constraint firstItem="A9f-6l-kH1" firstAttribute="centerX" secondItem="r82-yU-pQx" secondAttribute="centerX" multiplier="1.45" id="aK5-k8-5Il"/>
+                            <constraint firstItem="Dlp-Yu-Pu8" firstAttribute="centerX" secondItem="r82-yU-pQx" secondAttribute="centerX" multiplier="0.15" id="ahe-AV-oub"/>
+                            <constraint firstItem="Dlp-Yu-Pu8" firstAttribute="centerY" secondItem="r82-yU-pQx" secondAttribute="centerY" id="bTh-Mt-fbv"/>
+                            <constraint firstItem="A9f-6l-kH1" firstAttribute="width" secondItem="r82-yU-pQx" secondAttribute="width" multiplier="0.1" id="f1e-bs-3Hf"/>
+                            <constraint firstItem="ksG-Lc-7Aa" firstAttribute="centerY" secondItem="r82-yU-pQx" secondAttribute="centerY" id="foa-Fl-Ri1"/>
+                            <constraint firstItem="tHb-qu-4z3" firstAttribute="centerY" secondItem="r82-yU-pQx" secondAttribute="centerY" id="frt-nq-efd"/>
+                            <constraint firstItem="tMj-Tk-4WB" firstAttribute="centerY" secondItem="r82-yU-pQx" secondAttribute="centerY" id="h0z-tv-oIP"/>
+                            <constraint firstItem="Dlp-Yu-Pu8" firstAttribute="width" secondItem="r82-yU-pQx" secondAttribute="width" multiplier="0.15" id="jL4-Gq-ljM"/>
+                            <constraint firstItem="tHb-qu-4z3" firstAttribute="width" relation="lessThanOrEqual" secondItem="r82-yU-pQx" secondAttribute="width" multiplier="0.1" priority="850" id="wrV-S0-PAg"/>
+                            <constraint firstItem="Qht-Kg-cYO" firstAttribute="centerX" secondItem="r82-yU-pQx" secondAttribute="centerX" multiplier="0.7" id="xfJ-2H-cdH"/>
+                            <constraint firstItem="uNd-rX-Bm5" firstAttribute="centerY" secondItem="r82-yU-pQx" secondAttribute="centerY" id="xqG-Hf-Atu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="r82-yU-pQx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="NdK-vb-MvP"/>
+                    <constraint firstAttribute="trailing" secondItem="r82-yU-pQx" secondAttribute="trailing" constant="12" id="Yrx-rf-OHZ"/>
+                    <constraint firstAttribute="bottom" secondItem="r82-yU-pQx" secondAttribute="bottom" id="Zkz-QM-kD2"/>
+                    <constraint firstItem="r82-yU-pQx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fvV-Qd-G6y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="conditionIconView" destination="tHb-qu-4z3" id="xmo-MO-4XK"/>
+                <outlet property="feelsLikeLabel" destination="Qht-Kg-cYO" id="x4s-gH-9Rp"/>
+                <outlet property="humidityLabel" destination="A9f-6l-kH1" id="txU-7t-Kqw"/>
+                <outlet property="identifierTextLabel" destination="Dlp-Yu-Pu8" id="cIV-mh-VHp"/>
+                <outlet property="pressureLabel" destination="tMj-Tk-4WB" id="nTI-yg-6VK"/>
+                <outlet property="temperatureLabel" destination="uNd-rX-Bm5" id="XYa-RR-evT"/>
+                <outlet property="windInfoView" destination="ksG-Lc-7Aa" id="PLD-9g-JHN"/>
+            </connections>
+            <point key="canvasLocation" x="74.045801526717554" y="-11.267605633802818"/>
+        </tableViewCell>
+    </objects>
+</document>

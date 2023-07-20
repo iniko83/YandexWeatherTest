@@ -28,15 +28,47 @@ extension UITableView {
         register(T.self, forHeaderFooterViewReuseIdentifier: type.reuseIdentifier)
     }
 
-    final func registerNib<T: UITableViewCell & ReuseIdentifiable>(_ type: T.Type) {
+    final func registerNib<T: UITableViewCell & NibReusable>(_ type: T.Type) {
         let id = type.reuseIdentifier
         let nib = UINib(nibName: id, bundle: nil)
         register(nib, forCellReuseIdentifier: id)
     }
 
-    final func registerNib<T: UITableViewHeaderFooterView & ReuseIdentifiable>(_ type: T.Type) {
+    final func registerNib<T: UITableViewHeaderFooterView & NibReusable>(_ type: T.Type) {
         let id = type.reuseIdentifier
         let nib = UINib(nibName: id, bundle: nil)
         register(nib, forHeaderFooterViewReuseIdentifier: id)
+    }
+}
+
+extension UITableView {
+    class func make() -> Self {
+        let result = Self()
+        result.configureDefaultStyle()
+        result.disableHeaderTopPadding()
+        result.hideFillerRows()
+        result.estimatedRowHeight = UITableView.automaticDimension
+        return result
+    }
+}
+
+extension UITableView {
+    final func configureDefaultStyle() {
+        backgroundColor = .clear
+        separatorStyle = .none
+    }
+
+    final func disableHeaderTopPadding() {
+        if #available(iOS 15.0, *) {
+            sectionHeaderTopPadding = 0
+        }
+    }
+
+    final func hideFillerRows() {
+        if #available(iOS 15.0, *) {
+            fillerRowHeight = 0
+        } else {
+            tableFooterView = .init()
+        }
     }
 }

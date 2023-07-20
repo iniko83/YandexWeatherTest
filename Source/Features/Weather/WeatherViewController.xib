@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,9 +14,9 @@
                 <outlet property="connectionStatusHideConstraint" destination="Hyf-Ip-TFZ" id="Nld-3V-NRz"/>
                 <outlet property="connectionStatusView" destination="W8q-vO-ee1" id="Glr-yn-DRr"/>
                 <outlet property="contentView" destination="akA-MT-0ab" id="mad-M8-MnS"/>
-                <outlet property="factView" destination="xB5-9S-5FW" id="Ccn-ov-2GS"/>
-                <outlet property="forecastView" destination="Rm6-jp-FIp" id="DHl-6h-QIF"/>
-                <outlet property="indicationContainerView" destination="oHy-8v-dvF" id="b05-iG-gVr"/>
+                <outlet property="factMainView" destination="xB5-9S-5FW" id="1zd-xB-Ohi"/>
+                <outlet property="forecastMainView" destination="Rm6-jp-FIp" id="eWy-ji-c9j"/>
+                <outlet property="indicationView" destination="oHy-8v-dvF" id="R94-Jk-0Al"/>
                 <outlet property="locationAuthStatusButton" destination="FKU-3d-PEf" id="SJc-dd-jeg"/>
                 <outlet property="locationAuthStatusHideConstraint" destination="gcx-Kk-Rvs" id="Qch-FS-XJN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="2tx-f6-h6h"/>
@@ -27,16 +27,14 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akA-MT-0ab">
+                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akA-MT-0ab">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xB5-9S-5FW" customClass="WeatherFactView" customModule="YandexWeatherTest" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xB5-9S-5FW" customClass="WeatherFactMainView" customModule="YandexWeatherTest" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="366"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rm6-jp-FIp" customClass="WeatherForecastView" customModule="YandexWeatherTest" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rm6-jp-FIp" customClass="WeatherForecastMainView" customModule="YandexWeatherTest" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="366" width="393" height="393"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Rm6-jp-FIp" secondAttribute="height" multiplier="1:1" id="2IE-35-VTy"/>
                             </constraints>
@@ -57,18 +55,16 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKU-3d-PEf" customClass="WarningTextButton" customModule="YandexWeatherTest" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="29" width="393" height="30"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="JKF-JZ-nNf"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-vO-ee1" customClass="ConnectionStatusView" customModule="YandexWeatherTest" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="818" width="393" height="30"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="background"/>
             <constraints>
                 <constraint firstItem="oHy-8v-dvF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2IG-0G-orA"/>
                 <constraint firstItem="oHy-8v-dvF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EqA-Z4-obG"/>
@@ -96,8 +92,8 @@
         </designable>
     </designables>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="background">
+            <color red="0.37900000810623169" green="0.54199999570846558" blue="0.71299999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

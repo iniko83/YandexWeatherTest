@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherBaseInfoHeaderView" customModule="YandexWeatherTest" customModuleProvider="target">
+            <connections>
+                <outlet property="feelsLikeLabel" destination="3IP-YN-326" id="r5l-8Q-P7F"/>
+                <outlet property="humidityIconView" destination="Efb-rQ-fDO" id="Km8-0T-1Qa"/>
+                <outlet property="pressureLabel" destination="dp5-pV-WBl" id="L2R-Ff-cZX"/>
+                <outlet property="temperatureLabel" destination="MsL-OT-WoA" id="3hd-mM-P1E"/>
+                <outlet property="windIconView" destination="ClW-xk-gLY" id="Jhh-gS-zxR"/>
+            </connections>
+        </placeholder>
+        <view contentMode="scaleToFill" id="30c-Qd-2dJ">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+                    <rect key="frame" x="12" y="0.0" width="369" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsL-OT-WoA">
+                            <rect key="frame" x="61" y="13.666666666666664" width="44.333333333333343" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels like" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IP-YN-326">
+                            <rect key="frame" x="106.99999999999999" y="5.3333333333333321" width="44.333333333333329" height="33.666666666666671"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mmHg" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dp5-pV-WBl">
+                            <rect key="frame" x="199.33333333333334" y="13.666666666666664" width="44.333333333333343" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Efb-rQ-fDO" customClass="SvgImageView" customModule="YandexWeatherTest" customModuleProvider="target">
+                            <rect key="frame" x="256.66666666666669" y="11" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Efb-rQ-fDO" secondAttribute="height" multiplier="1:1" id="HUz-Hc-xVt"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-xk-gLY" customClass="SvgImageView" customModule="YandexWeatherTest" customModuleProvider="target">
+                            <rect key="frame" x="321" y="11" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="ClW-xk-gLY" secondAttribute="height" multiplier="1:1" id="P8O-hL-Ubt"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Efb-rQ-fDO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="GGK-5J-vQs"/>
+                        <constraint firstItem="3IP-YN-326" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.12" id="KCi-le-Jaa"/>
+                        <constraint firstItem="MsL-OT-WoA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="P4l-aF-Von"/>
+                        <constraint firstItem="3IP-YN-326" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.7" id="P8I-pk-aaI"/>
+                        <constraint firstItem="ClW-xk-gLY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.8" id="RfH-od-mJI"/>
+                        <constraint firstItem="ClW-xk-gLY" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" priority="800" id="eNH-DH-aIz"/>
+                        <constraint firstItem="3IP-YN-326" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="haT-O1-aDA"/>
+                        <constraint firstItem="ClW-xk-gLY" firstAttribute="width" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.1" priority="850" id="hdv-c8-PuP"/>
+                        <constraint firstItem="ClW-xk-gLY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="htk-iq-vlv"/>
+                        <constraint firstItem="dp5-pV-WBl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.2" id="i1Z-Jx-VLP"/>
+                        <constraint firstItem="MsL-OT-WoA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.12" id="iea-7l-XwE"/>
+                        <constraint firstItem="Efb-rQ-fDO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.45" id="jsi-hj-CUw"/>
+                        <constraint firstItem="dp5-pV-WBl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qgd-pz-CTf"/>
+                        <constraint firstItem="MsL-OT-WoA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.45" id="soC-X7-6Yl"/>
+                        <constraint firstItem="dp5-pV-WBl" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.12" id="u1W-jR-Aho"/>
+                        <constraint firstItem="Efb-rQ-fDO" firstAttribute="width" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.1" priority="850" id="u4J-J3-u2N"/>
+                        <constraint firstItem="Efb-rQ-fDO" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" priority="800" id="y5L-BM-0vy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="12" id="Hgs-ft-N96"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="leading" secondItem="30c-Qd-2dJ" secondAttribute="leading" constant="12" id="ZHZ-C1-huO"/>
+                <constraint firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="m6b-pw-tlL"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="top" secondItem="30c-Qd-2dJ" secondAttribute="top" id="nza-c8-uoR"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-224" y="358"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    </objects>
+</document>

@@ -8,7 +8,7 @@
 import Foundation
 
 /* NOTE: - Вариант для date_short будем трактовать как value. */
-enum Temperature {
+enum Temperature: Equatable {
     case value(Int)
     case detailed(average: Int, minimum: Int, maximum: Int)
 }
@@ -52,5 +52,11 @@ extension Temperature: Codable {
         case let .value(value):
             try container.encode(value, forKey: .value)
         }
+    }
+}
+
+extension Temperature: DefaultInitializable {
+    init() {
+        self = .value(.zero)
     }
 }

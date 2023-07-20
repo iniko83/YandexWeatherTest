@@ -29,7 +29,7 @@ import Foundation
 enum Weather {}
 
 extension Weather {
-    struct Fact {
+    struct Fact: Equatable {
         let baseInfo: BaseInfo
         let daytime: Daytime                             
 

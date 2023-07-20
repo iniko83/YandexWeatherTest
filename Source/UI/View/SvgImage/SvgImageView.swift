@@ -165,7 +165,7 @@ extension SvgImageView: Connectable {
     }
 
     func connect(_ model: Model) {
-        self.model = model
+        updateData(model)
 
         fetchImage()
     }
@@ -174,7 +174,14 @@ extension SvgImageView: Connectable {
         observeNetworkAvailability(false)
 
         bag = .init()
-        model = nil
+
+        updateData(nil)
+    }
+
+    private func updateData(_ model: Model?) {
+        self.model = model
+
+        guard model == nil else { return }
 
         image = nil
         isDisplayingPlaceholderImage = false

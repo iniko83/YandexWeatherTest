@@ -48,8 +48,6 @@ final class ConnectionStatusView: UIView, NibOwnerLoadable {
     private func updateConnectionStatusAnimations() {
         let connectionStatus = ConnectionStatus(isConnected: isConnected)
         backgroundColor = connectionStatus.backgroundColor()
-
-        backgroundColor = isConnected ? .green : .black
         textLabel.text = connectionStatus.text()
     }
 
@@ -101,10 +99,9 @@ private enum ConnectionStatus {
     }
 
     func backgroundColor() -> UIColor {
-        // FIXME: - colors
         isOffline()
-            ? .black
-            : .systemGreen
+            ? Asset.Assets.warningDark.color
+            : Asset.Assets.warningGreen.color
     }
 
     func text() -> String {

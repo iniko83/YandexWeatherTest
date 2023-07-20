@@ -9,7 +9,7 @@ import Foundation
 
 /* Icon example for .phase5: https://yastatic.net/weather/i/moon/05.svg */
 
-enum MoonPhase: Int, Codable {
+enum MoonPhase: Int, Codable, Equatable {
     case phase0     // full moon
     case phase1     // waning moon
     case phase2
@@ -44,5 +44,11 @@ enum MoonPhase: Int, Codable {
                 : L10n.MoonPhase.Text.waxingCrescent
         }
         return result
+    }
+}
+
+extension MoonPhase: DefaultInitializable {
+    init() {
+        self = .phase0
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Wind {
+struct Wind: Equatable {
     let direction: Direction    // Направление
     let speed: CGFloat          // Скорость, м/с
 }
@@ -28,5 +28,12 @@ extension Wind: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(direction, forKey: .direction)
         try container.encode(speed, forKey: .speed)
+    }
+}
+
+extension Wind: DefaultInitializable {
+    init() {
+        direction = .init()
+        speed = .zero
     }
 }

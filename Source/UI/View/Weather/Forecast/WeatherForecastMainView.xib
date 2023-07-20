@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherForecastMainView" customModule="YandexWeatherTest" customModuleProvider="target">
+            <connections>
+                <outlet property="dateLabel" destination="Ott-Ak-mr1" id="pkX-qm-ww0"/>
+                <outlet property="kindSelectionView" destination="FHh-d5-pDh" id="3Qn-qX-e5C"/>
+                <outlet property="tableContainerView" destination="ixD-v5-oMZ" id="VB9-Wy-ADT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hOB-cc-G3T">
+                    <rect key="frame" x="0.0" y="6" width="393" height="80.666666666666671"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="753" text="Today" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ott-Ak-mr1">
+                            <rect key="frame" x="12" y="0.0" width="369" height="21.666666666666668"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9T-z9-gwr" customClass="SeparatorView" customModule="YandexWeatherTest" customModuleProvider="target">
+                            <rect key="frame" x="12" y="25.666666666666668" width="369" height="1"/>
+                            <color key="backgroundColor" name="text"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" placeholder="YES" id="Zp4-hz-Fc2"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="FHh-d5-pDh" customClass="WeatherForecastKindSelectionView" customModule="YandexWeatherTest" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="30.666666666666664" width="393" height="49.999999999999993"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="1" constant="40" placeholder="YES" id="fOY-Ii-vFt"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="M9T-z9-gwr" secondAttribute="trailing" constant="12" id="Ism-tV-O9K"/>
+                        <constraint firstItem="FHh-d5-pDh" firstAttribute="width" secondItem="hOB-cc-G3T" secondAttribute="width" id="Me8-RR-BFH"/>
+                        <constraint firstItem="M9T-z9-gwr" firstAttribute="leading" secondItem="hOB-cc-G3T" secondAttribute="leading" constant="12" id="YlP-FN-SUt"/>
+                        <constraint firstItem="Ott-Ak-mr1" firstAttribute="leading" secondItem="hOB-cc-G3T" secondAttribute="leading" constant="12" id="aPY-PS-rx3"/>
+                        <constraint firstAttribute="trailing" secondItem="Ott-Ak-mr1" secondAttribute="trailing" constant="12" id="lUZ-sD-4iy"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixD-v5-oMZ" customClass="WeatherForecastTableContainerView" customModule="YandexWeatherTest" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="92.666666666666686" width="393" height="759.33333333333326"/>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="hOB-cc-G3T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="36U-hk-XPW"/>
+                <constraint firstAttribute="trailing" secondItem="ixD-v5-oMZ" secondAttribute="trailing" id="87O-eQ-w1e"/>
+                <constraint firstItem="ixD-v5-oMZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Moa-d9-sck"/>
+                <constraint firstAttribute="trailing" secondItem="hOB-cc-G3T" secondAttribute="trailing" id="Vtb-0R-pII"/>
+                <constraint firstItem="hOB-cc-G3T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tT1-aE-0SI"/>
+                <constraint firstAttribute="bottom" secondItem="ixD-v5-oMZ" secondAttribute="bottom" id="vGJ-K5-5dZ"/>
+                <constraint firstItem="ixD-v5-oMZ" firstAttribute="top" secondItem="hOB-cc-G3T" secondAttribute="bottom" constant="6" id="xPd-n7-agO"/>
+            </constraints>
+            <point key="canvasLocation" x="-167" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="text">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

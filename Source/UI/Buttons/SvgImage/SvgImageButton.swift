@@ -67,31 +67,27 @@ final class SvgImageButton: UIControl {
 }
 
 extension SvgImageButton: Connectable {
-    struct Model {
-        let bag = DisposeBag()
-
-        // inputs
-        let style: BehaviorRelay<Style>
-
-        // outputs
-        let tap: PublishRelay<Void>
-
-        // data
-        let name: SvgImageName
-    }
-
     func connect(_ model: Model) {
-        modelBag = model.bag
+        updateData(model)
 
         bindInputs(model)
         bindOutputs(model)
 
-        imageView.bind(model.imageViewModel())
+        imageView.connect(model.imageViewModel())
+
+        updateColors()
+
+        animated = true
     }
 
     func disconnect() {
         bag = .init()
-        modelBag = nil
+
+        updateData(nil)
+
+        imageView.disconnect()
+
+        animated = false
     }
 
     private func bindInputs(_ model: Model) {
@@ -107,6 +103,25 @@ extension SvgImageButton: Connectable {
             .controlEvent(.touchUpInside)
             .bind(to: model.tap)
             .disposed(by: bag)
+    }
+
+    private func updateData(_ model: Model?) {
+        modelBag = model?.bag
+    }
+}
+
+extension SvgImageButton {
+    struct Model {
+        let bag = DisposeBag()
+
+        // inputs
+        let style: BehaviorRelay<Style>
+
+        // outputs
+        let tap: PublishRelay<Void>
+
+        // data
+        let name: SvgImageName
     }
 }
 
@@ -142,7 +157,6 @@ extension SvgImageButton {
         }
 
         fileprivate func tintColor(_ state: UIControl.State) -> UIColor {
-            // FIXME: - colors
             let result: UIColor
             switch state {
             case .highlighted:

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherFactDetailsView" customModule="YandexWeatherTest" customModuleProvider="target">
+            <connections>
+                <outlet property="iconView" destination="tbp-7p-2vS" id="0Z9-f4-sf4"/>
+                <outlet property="temperatureLabel" destination="iNd-nP-lvm" id="i2N-39-iQb"/>
+            </connections>
+        </placeholder>
+        <view contentMode="scaleToFill" id="KiW-dU-Ip1">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tbp-7p-2vS" customClass="SvgImageView" customModule="YandexWeatherTest" customModuleProvider="target">
+                    <rect key="frame" x="98.333333333333329" y="0.0" width="196.33333333333337" height="196.66666666666666"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="tbp-7p-2vS" secondAttribute="height" multiplier="1:1" id="pia-fq-Sfc"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33°" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNd-nP-lvm">
+                    <rect key="frame" x="0.0" y="212.66666666666669" width="393" height="639.33333333333326"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="iNd-nP-lvm" secondAttribute="bottom" id="5pq-m9-MVb"/>
+                <constraint firstItem="tbp-7p-2vS" firstAttribute="centerX" secondItem="KiW-dU-Ip1" secondAttribute="centerX" id="JPZ-QU-N1P"/>
+                <constraint firstItem="tbp-7p-2vS" firstAttribute="width" secondItem="KiW-dU-Ip1" secondAttribute="width" multiplier="0.5" priority="700" id="N02-pR-VtP"/>
+                <constraint firstItem="iNd-nP-lvm" firstAttribute="leading" secondItem="KiW-dU-Ip1" secondAttribute="leading" id="Sfd-iZ-hJr"/>
+                <constraint firstAttribute="trailing" secondItem="iNd-nP-lvm" secondAttribute="trailing" id="nH4-7t-aKm"/>
+                <constraint firstItem="iNd-nP-lvm" firstAttribute="top" secondItem="tbp-7p-2vS" secondAttribute="bottom" constant="16" id="s6g-g4-Yhq"/>
+                <constraint firstItem="tbp-7p-2vS" firstAttribute="top" secondItem="KiW-dU-Ip1" secondAttribute="top" id="ug7-hb-6MZ"/>
+            </constraints>
+            <point key="canvasLocation" x="-689" y="-657"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    </objects>
+</document>

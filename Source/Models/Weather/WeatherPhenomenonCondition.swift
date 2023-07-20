@@ -8,7 +8,7 @@
 import Foundation
 
 extension Weather {
-    enum PhenomenonCondition: String, Codable {
+    enum PhenomenonCondition: String, Codable, Equatable {
         case fog                                                        // туман
         case mist                                                       // дымка
         case smoke                                                      // смог

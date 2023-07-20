@@ -27,4 +27,34 @@
 
 "SvgResourceError.NotFoundIcon" = "Please add \"%@.svg\" at \"Resources/Icons\" project folder.";
 
+"Text.NoForecast" = "No forecast";
+"Text.Today" = "Today";
+"Text.Tomorrow" = "Tomorrow";
+
+"Weather.BaseInfo.HeaderTitle.FeelsLike" = "Feels like";
+"Weather.BaseInfo.HeaderTitle.Pressure" = "mmHg";
+"Weather.BaseInfo.HeaderTitle.Temperature" = "Temp";
+
+"Weather.Forecast.Identificator.HalfDay.Title.Day" = "day";
+"Weather.Forecast.Identificator.HalfDay.Title.Night" = "night";
+
+"Weather.Forecast.Identificator.QuarterDay.Title.Day" = "day";
+"Weather.Forecast.Identificator.QuarterDay.Title.Evening" = "evening";
+"Weather.Forecast.Identificator.QuarterDay.Title.Morning" = "morning";
+"Weather.Forecast.Identificator.QuarterDay.Title.Night" = "night";
+
+"Weather.Forecast.Kind.DayHalfs" = "Day & Night";
+"Weather.Forecast.Kind.DayQuarters" = "Times of day";
+"Weather.Forecast.Kind.Hours" = "Hourly";
+
 "WeatherController.Alert.LocationServicesDenied.Message" = "To determine your current location, you need to turn on location services in the app's settings.";
+
+"Wind.Direction.Short.Calm" = "c";
+"Wind.Direction.Short.East" = "e";
+"Wind.Direction.Short.North" = "n";
+"Wind.Direction.Short.NorthEast" = "ne";
+"Wind.Direction.Short.NorthWest" = "nw";
+"Wind.Direction.Short.South" = "s";
+"Wind.Direction.Short.SouthEast" = "se";
+"Wind.Direction.Short.SouthWest" = "sw";
+"Wind.Direction.Short.West" = "w";

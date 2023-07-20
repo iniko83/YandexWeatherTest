@@ -12,7 +12,7 @@ extension Weather.Forecast {
 }
 
 extension Weather {
-    struct Forecast {
+    struct Forecast: Equatable {
         let date: Date
         let moonPhase: MoonPhase
         let sunAppearance: SunAppearance
@@ -20,6 +20,43 @@ extension Weather {
         let halfDays: [Identificator.HalfDay: BaseInfo]
         let quarterDays: [Identificator.QuarterDay: BaseInfo]
         let hours: [Identificator.Hour: BaseInfo]
+
+        func baseInfo(id: Identificator) -> BaseInfo? {
+            let result: BaseInfo?
+            switch id {
+            case let .halfDay(id):
+                result = halfDays[id]
+            case let .quarterDay(id):
+                result = quarterDays[id]
+            case let .hour(id):
+                result = hours[id]
+            }
+            return result
+        }
+
+        func identificators(kind: Kind) -> [Identificator] {
+            let result: [Identificator]
+            switch kind {
+            case .dayHalfs:
+                let ids = Set(halfDays.keys)
+                result = Identificator.HalfDay
+                    .allCases
+                    .compactMap { id in ids.contains(id) ? .halfDay(id) : nil }
+
+            case .dayQuarters:
+                let ids = Set(quarterDays.keys)
+                result = Identificator.QuarterDay
+                    .allCases
+                    .compactMap { id in ids.contains(id) ? .quarterDay(id) : nil }
+
+            case .hours:
+                let ids = Set(hours.keys)
+                result = Identificator.Hour
+                    .allCases
+                    .compactMap { id in ids.contains(id) ? .hour(id) : nil }
+            }
+            return result
+        }
     }
 }
 
@@ -114,6 +151,19 @@ extension Weather.Forecast: Codable {
         .init(
             halfDays: halfDays,
             quarterDays: quarterDays
+        )
+    }
+}
+
+extension Weather.Forecast: DefaultInitializable {
+    init() {
+        self.init(
+            date: .init(),
+            moonPhase: .init(),
+            sunAppearance: .init(),
+            halfDays: .init(),
+            quarterDays: .init(),
+            hours: .init()
         )
     }
 }

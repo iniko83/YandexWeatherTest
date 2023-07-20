@@ -8,7 +8,7 @@
 import Foundation
 
 extension Weather {
-    enum Condition: String, Codable {
+    enum Condition: String, Codable, Equatable {
         case clear                                              // ясно
         case partlyCloudy = "partly-cloudy"                     // малооблачно.
         case cloudy                                             // облачно с прояснениями.
@@ -25,5 +25,11 @@ extension Weather {
         case thunderstorm                                       // гроза
         case thunderstormWithRain = "thunderstorm-with-rain"    // дождь с грозой
         case thunderstormWithHail = "thunderstorm-with-hail"    // гроза с градом
+    }
+}
+
+extension Weather.Condition: DefaultInitializable {
+    init() {
+        self = .clear
     }
 }

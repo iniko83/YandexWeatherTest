@@ -7,6 +7,9 @@
 
 import Foundation
 
+protocol LoadingIndicationViewProviderProtocol: IndicationViewProviderProtocol where
+    Tag == LoadingState {}
+
 enum LoadingState: Equatable {
     case loading
     case error(PresentableError)

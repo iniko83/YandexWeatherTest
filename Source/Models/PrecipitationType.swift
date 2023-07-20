@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PrecipitationType: Int, Codable {
+enum PrecipitationType: Int, Codable, Equatable {
     case `none`     // без осадков
     case rain       // дождь
     case wetSnow    // дождь со снегом

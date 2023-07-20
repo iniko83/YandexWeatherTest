@@ -30,14 +30,18 @@ extension ShimmerView: Connectable {
     typealias Model = ActivityIndicatorView.Model
 
     func connect(_ model: ActivityIndicatorView.Model) {
-        backgroundColor = model.color
+        updateData(model)
 
         startShimmering()
     }
 
     func disconnect() {
-        backgroundColor = nil
+        updateData(nil)
 
         stopShimmering()
+    }
+
+    private func updateData(_ model: Model?) {
+        backgroundColor = model?.color
     }
 }

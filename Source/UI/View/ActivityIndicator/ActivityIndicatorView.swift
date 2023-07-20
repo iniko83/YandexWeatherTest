@@ -7,25 +7,27 @@
 
 import UIKit
 
-// NOTE: Based on: https://github.com/ninjaprox/NVActivityIndicatorView
+// NOTE: Based on - https://github.com/ninjaprox/NVActivityIndicatorView
 
 final class ActivityIndicatorView: UIView {
     private let activityLayer = CAShapeLayer()
 
     private var layerSide = CGFloat.zero
 
+    private var activityStrokeColor = UIColor.clear {
+        didSet {
+            updateActivityLayerStrokeColor()
+        }
+    }
+
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        setupActivityLayer()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
-    }
-
-    private func commonInit() {
         setupActivityLayer()
     }
 
@@ -44,6 +46,15 @@ final class ActivityIndicatorView: UIView {
         updateLayerDimensionsIfNeeded()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        let isInterfaceStyleChanged = previousTraitCollection?.hasDifferentColorAppearance(comparedTo: traitCollection) ?? true
+        if isInterfaceStyleChanged {
+            updateActivityLayerStrokeColor()
+        }
+    }
+
     // MARK: -
     private func shapePath(radius: CGFloat) -> CGPath {
         let path: UIBezierPath = UIBezierPath()
@@ -55,6 +66,10 @@ final class ActivityIndicatorView: UIView {
             clockwise: true
         )
         return path.cgPath
+    }
+
+    private func updateActivityLayerStrokeColor() {
+        activityLayer.strokeColor = activityStrokeColor.cgColor
     }
 
     private func updateLayerDimensionsIfNeeded() {
@@ -132,13 +147,20 @@ extension ActivityIndicatorView: Connectable {
     }
 
     func connect(_ model: Model) {
-        activityLayer.strokeColor = model.color.cgColor
+        updateData(model)
 
         startAnimation()
     }
 
     func disconnect() {
+        updateData(nil)
+
         stopAnimation()
+    }
+
+    private func updateData(_ model: Model?) {
+        let color = model?.color ?? .clear
+        activityStrokeColor = color
     }
 }
 

@@ -24,7 +24,7 @@ import Foundation
  */
 
 extension Weather {
-    enum Force: Int {
+    enum Force: Int, Equatable {
         case zero
         case oneQuarter
         case twoQuarters

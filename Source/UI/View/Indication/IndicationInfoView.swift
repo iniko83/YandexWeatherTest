@@ -25,9 +25,9 @@ final class IndicationInfoView: UIView {
     }
 
     private func commonInit() {
-        // FIXME: - colors
-        textLabel.textColor = .black
-        iconView.tintColor = .black
+        let color = Asset.Assets.text.color
+        textLabel.textColor = color
+        iconView.tintColor = color
 
         textLabel.font = .systemFont(ofSize: .fontSize)
         textLabel.textAlignment = .center

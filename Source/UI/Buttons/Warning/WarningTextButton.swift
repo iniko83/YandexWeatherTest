@@ -36,12 +36,6 @@ final class WarningTextButton: UIControl, NibOwnerLoadable {
         }
     }
 
-    override var isSelected: Bool {
-        didSet {
-            updateColorsIfAnimated()
-        }
-    }
-
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -117,7 +111,7 @@ extension WarningTextButton: Connectable {
     }
 
     func connect(_ model: Model) {
-        modelBag = model.bag
+        updateData(model)
 
         bindInputs(model)
         bindOutputs(model)
@@ -129,7 +123,8 @@ extension WarningTextButton: Connectable {
 
     func disconnect() {
         bag = .init()
-        modelBag = nil
+
+        updateData(nil)
 
         animated = false
     }
@@ -160,6 +155,10 @@ extension WarningTextButton: Connectable {
             .bind(to: model.tap)
             .disposed(by: bag)
     }
+
+    private func updateData(_ model: Model?) {
+        modelBag = model?.bag
+    }
 }
 
 extension WarningTextButton {
@@ -171,28 +170,29 @@ extension WarningTextButton {
         }
 
         fileprivate func backgroundColor(_ state: UIControl.State) -> UIColor {
-            // FIXME: - colors
             let result: UIColor
             switch state {
             case .highlighted:
-                result = UIColor.systemOrange.withAddBrightness(0.15)
+                result = Asset.Assets.warningOrange.color.withAddBrightness(0.15)
             case .disabled:
                 result = UIColor.systemGray
             default:
-                result = UIColor.systemOrange
+                result = Asset.Assets.warningOrange.color
             }
             return result
         }
 
         fileprivate func titleColor(_ state: UIControl.State) -> UIColor {
+            let color = Asset.Assets.warningText.color
+
             let result: UIColor
             switch state {
             case .highlighted:
-                result = UIColor.white.withAlphaComponent(0.75)
+                result = color.withAlphaComponent(0.75)
             case .disabled:
-                result = UIColor.white.withAlphaComponent(0.5)
+                result = color.withAlphaComponent(0.5)
             default:
-                result = UIColor.white
+                result = color
             }
             return result
         }

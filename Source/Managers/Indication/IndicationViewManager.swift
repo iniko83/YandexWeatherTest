@@ -111,6 +111,7 @@ final class IndicationViewManager<Provider: IndicationViewProviderProtocol> {
 extension IndicationViewManager: Connectable {
     func connect(_ model: Model) {
         updateData(model)
+
         bindInputs(model)
 
         animated = true
@@ -119,11 +120,21 @@ extension IndicationViewManager: Connectable {
     func disconnect() {
         bag = .init()
         delayBag = .init()
-        modelBag = nil
+
+        restoreDefaultViewVisibility()
+
+        updateData(nil)
 
         animated = false
+    }
 
-        // restore default state
+    private func bindInputs(_ model: Model) {
+        model.state
+            .subscribe(onNext: { [unowned self] value in self.processing(state: value) })
+            .disposed(by: bag)
+    }
+
+    private func restoreDefaultViewVisibility() {
         UIView.performWithoutAnimation {
             self.stateView?.removeFromSuperview()
 
@@ -139,20 +150,14 @@ extension IndicationViewManager: Connectable {
         }
     }
 
-    private func bindInputs(_ model: Model) {
-        model.state
-            .subscribe(onNext: { [unowned self] value in self.processing(state: value) })
-            .disposed(by: bag)
-    }
+    private func updateData(_ model: Model?) {
+        modelBag = model?.bag
 
-    private func updateData(_ model: Model) {
-        modelBag = model.bag
+        provider = model?.provider
+        containerView = model?.containerView
+        hideableContentView = model?.hideableContentView
 
-        provider = model.provider
-        containerView = model.containerView
-        hideableContentView = model.hideableContentView
-
-        indicationDelay = model.indicationDelay
+        indicationDelay = model?.indicationDelay ?? .zero
     }
 }
 
@@ -175,6 +180,29 @@ extension IndicationViewManager {
     struct State: Equatable {
         let tag: Tag?
         let isDelayed: Bool
+    }
+}
+
+extension IndicationViewManager.Model where IndicationViewManager.Tag == EmptyState {
+    init(
+        tag: BehaviorRelay<EmptyState?>,
+        provider: Provider,
+        containerView: UIView,
+        hideableContentView: UIView? = nil
+    ) {
+        self.init(
+            state: .init(),
+            provider: provider,
+            containerView: containerView,
+            hideableContentView: hideableContentView,
+            indicationDelay: .delay
+        )
+
+        tag
+            .map { value in .init(tag: value) }
+            .distinctUntilChanged()
+            .bind(to: state)
+            .disposed(by: bag)
     }
 }
 
@@ -205,6 +233,15 @@ extension IndicationViewManager.State: DefaultInitializable {
     init() {
         self.init(
             tag: nil,
+            isDelayed: false
+        )
+    }
+}
+
+extension IndicationViewManager.State where IndicationViewManager.Tag == EmptyState {
+    init(tag: EmptyState?) {
+        self.init(
+            tag: tag,
             isDelayed: false
         )
     }

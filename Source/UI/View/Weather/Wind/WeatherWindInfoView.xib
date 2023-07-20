@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherWindInfoView" customModule="YandexWeatherTest" customModuleProvider="target">
+            <connections>
+                <outlet property="directionIconView" destination="EuX-kc-Txi" id="cwr-xf-m26"/>
+                <outlet property="directionLabel" destination="tvo-v9-Q8w" id="taf-42-ehk"/>
+                <outlet property="speedLabel" destination="aff-OG-82s" id="9Bh-Y1-JdE"/>
+                <outlet property="stackView" destination="CXw-k0-dcy" id="vLh-i2-bUh"/>
+            </connections>
+        </placeholder>
+        <view contentMode="scaleToFill" id="la4-vC-dTV">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CXw-k0-dcy">
+                    <rect key="frame" x="16.666666666666664" y="0.0" width="66.666666666666686" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="2.7" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aff-OG-82s">
+                            <rect key="frame" x="0.0" y="13.666666666666664" width="19.666666666666668" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EuX-kc-Txi" customClass="SvgImageView" customModule="YandexWeatherTest" customModuleProvider="target">
+                            <rect key="frame" x="27.666666666666671" y="16" width="12" height="12"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="12" id="hKr-J7-DMO"/>
+                                <constraint firstAttribute="width" secondItem="EuX-kc-Txi" secondAttribute="height" multiplier="1:1" id="wUM-mq-4Wb"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="NE" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvo-v9-Q8w">
+                            <rect key="frame" x="48" y="13.666666666666664" width="18.666666666666671" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="CXw-k0-dcy" firstAttribute="centerX" secondItem="la4-vC-dTV" secondAttribute="centerX" id="4vX-hp-pgu"/>
+                <constraint firstAttribute="bottom" secondItem="CXw-k0-dcy" secondAttribute="bottom" id="dkY-A7-05G"/>
+                <constraint firstItem="CXw-k0-dcy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="la4-vC-dTV" secondAttribute="leading" priority="999" id="wJ1-gE-CqP"/>
+                <constraint firstItem="CXw-k0-dcy" firstAttribute="top" secondItem="la4-vC-dTV" secondAttribute="top" id="xuv-Yr-Xba"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-560" y="-502"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    </objects>
+</document>

@@ -7,12 +7,19 @@
 
 import Foundation
 
+typealias NibReusable = NibLoadable & ReuseIdentifiable
+
 protocol DefaultInitializable {
     init()
 }
 
 extension BooleanLiteralType: DefaultInitializable {}
+extension IntegerLiteralType: DefaultInitializable {}
 extension StringLiteralType: DefaultInitializable {}
+
+extension Array: DefaultInitializable {}
+
+extension Date: DefaultInitializable {}
 
 // MARK: - Model support
 protocol Bindable: AnyObject {

@@ -8,8 +8,9 @@
 import RxSwift
 
 extension WeatherViewController {
-    typealias DataSource = WeatherPresenterViewDataSource
-    typealias IndicationManager = IndicationViewManager<WeatherIndicationViewProvider>
+    typealias IndicationDataSource = WeatherPresenterViewDataSource
+    typealias IndicationManager = IndicationViewManager<IndicationViewProvider>
+    typealias IndicationViewProvider = WeatherIndicationViewProvider
     typealias Model = Presenter
 }
 
@@ -20,10 +21,10 @@ final class WeatherViewController: MvpViewController<WeatherPresenter>, MvpView 
     private let indicationManager = IndicationManager()
 
     @IBOutlet private weak var contentView: UIView!
-    @IBOutlet private weak var indicationContainerView: UIView!
+    @IBOutlet private weak var indicationView: UIView!
 
-    @IBOutlet weak var factView: WeatherFactView!
-    @IBOutlet weak var forecastView: WeatherForecastView!
+    @IBOutlet private weak var factMainView: WeatherFactMainView!
+    @IBOutlet private weak var forecastMainView: WeatherForecastMainView!
 
     @IBOutlet private weak var connectionStatusView: ConnectionStatusView!
     @IBOutlet private weak var locationAuthStatusButton: WarningTextButton!
@@ -68,11 +69,14 @@ final class WeatherViewController: MvpViewController<WeatherPresenter>, MvpView 
 
 extension WeatherViewController: Connectable {
     func connect(_ model: WeatherPresenter) {
-        let dataSource = model as DataSource
+        let actions = model as WeatherPresenterViewActions
 
-        indicationManager.bind(indicationManagerModel(dataSource))
+        factMainView.connect(model.factMainViewModel(actions))
+        forecastMainView.connect(model.forecastMainViewModel(actions))
+        connectionStatusView.connect(model.connectionStatusViewModel())
+        locationAuthStatusButton.connect(model.locationAuthStatusButtonModel(actions))
 
-        bindViews(model)
+        indicationManager.connect(indicationManagerModel(model))
 
         isConnected = true
     }
@@ -80,27 +84,26 @@ extension WeatherViewController: Connectable {
     func disconnect() {
         bag = .init()
 
+        factMainView.disconnect()
+        forecastMainView.disconnect()
+        connectionStatusView.disconnect()
+        locationAuthStatusButton.disconnect()
+
+        indicationManager.disconnect()
+
         isConnected = false
     }
 
     // MARK: - Models
-    private func indicationManagerModel(_ dataSource: DataSource) -> IndicationManager.Model {
+    private func indicationManagerModel(
+        _ indicationDataSource: IndicationDataSource
+    ) -> IndicationManager.Model {
         .init(
-            tag: dataSource.weatherLoadingState,
-            provider: .init(dataSource: dataSource),
-            containerView: indicationContainerView,
+            tag: indicationDataSource.weatherLoadingState,
+            provider: .init(indicationDataSource: indicationDataSource),
+            containerView: indicationView,
             hideableContentView: contentView
         )
-    }
-
-    // MARK: -
-    private func bindViews(_ model: Model) {
-        bag = .init()
-
-        connectionStatusView.bind(model.connectionStatusViewModel())
-
-        let actions = model as WeatherPresenterViewActions
-        locationAuthStatusButton.bind(model.locationAuthStatusButtonModel(actions))
     }
 }
 

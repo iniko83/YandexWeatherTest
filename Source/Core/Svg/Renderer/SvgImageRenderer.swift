@@ -8,7 +8,7 @@
 import RxSwift
 import WebKit
 
-// NOTE: based on - https://github.com/jonathanlu813/SVGWebRenderer
+// NOTE: Based on - https://github.com/jonathanlu813/SVGWebRenderer
 
 fileprivate typealias RenderError = SvgImageRenderError
 fileprivate typealias RenderResult = Result<UIImage, Error>
@@ -326,5 +326,5 @@ private extension Int {
 }
 
 private extension TimeInterval {
-    static let renderDelay = Self(0.25)
+    static let renderDelay = Self(1)
 }
