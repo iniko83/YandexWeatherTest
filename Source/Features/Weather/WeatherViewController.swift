@@ -16,8 +16,6 @@ extension WeatherViewController {
 
 @IBDesignable
 final class WeatherViewController: MvpViewController<WeatherPresenter>, MvpView {
-    private var bag = DisposeBag()
-
     private let indicationManager = IndicationManager()
 
     @IBOutlet private weak var contentView: UIView!
@@ -82,8 +80,6 @@ extension WeatherViewController: Connectable {
     }
 
     func disconnect() {
-        bag = .init()
-
         factMainView.disconnect()
         forecastMainView.disconnect()
         connectionStatusView.disconnect()
@@ -112,7 +108,10 @@ extension WeatherViewController: WeatherView {
         let alertController = UIAlertController.make(
             message: L10n.WeatherController.Alert.LocationServicesDenied.message,
             actions: [
-                .default(L10n.Action.openSettings, handler: { UIApplication.openSettings() }),
+                .default(
+                    L10n.Action.openSettings,
+                    handler: { self.presenter?.tapOnOpenSettingsAtLocationDeniedAlert() }
+                ),
                 .cancel(handler: { self.presenter?.tapOnCancelAtLocationDeniedAlert() })
             ]
         )

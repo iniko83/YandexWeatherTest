@@ -17,9 +17,9 @@ extension Resolver: ResolverRegistering {
 
 private extension Resolver {
     static func registerInteractors() {
-        register { LocationInteractor() as LocationInteractor }
+        register { LocationInteractor.shared as LocationInteractor }
         register { NetworkAvailabilityInteractor() as NetworkAvailabilityInteractor }
-        register { SvgImageProviderInteractor() as SvgImageProviderInteractor }
+        register { SvgImageProviderInteractor.shared as SvgImageProviderInteractor }
 
         // order mean
         register { WeatherNetworkInteractor() as WeatherNetworkInteractor }

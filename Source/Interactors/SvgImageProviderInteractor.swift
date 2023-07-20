@@ -23,6 +23,10 @@ extension SvgImageProviderInteractor {
     typealias Name = SvgImageName
 }
 
+extension SvgImageProviderInteractor {
+    static let shared = SvgImageProviderInteractor()
+}
+
 final class SvgImageProviderInteractor {
     private let dataLoader: DataLoader
     private let dataStorage: DataStorage
@@ -30,7 +34,7 @@ final class SvgImageProviderInteractor {
     private let imageRenderer: ImageRenderer
     private let imageStorage: ImageStorage
 
-    init() {
+    private init() {
         dataLoader = .init()
         dataStorage = .init()
         imageCache = .init()

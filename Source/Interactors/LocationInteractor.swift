@@ -18,6 +18,10 @@ protocol LocationInteractorProtocol: AnyObject {
     func requestLocation() -> Single<CLLocationCoordinate2D>
 }
 
+extension LocationInteractor {
+    static let shared = LocationInteractor()
+}
+
 final class LocationInteractor {
     private let bag = DisposeBag()
 
@@ -27,7 +31,7 @@ final class LocationInteractor {
     let isAuthorized = BehaviorRelay<Bool>()
     let isDenied = BehaviorRelay<Bool>()
 
-    init() {
+    private init() {
         bindAuthStatusRelays()
     }
 

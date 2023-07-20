@@ -26,7 +26,6 @@ extension CLLocationManager {
 
         let result = rx
             .didChangeAuthorizationStatus
-            .skip(1)
             .map { status in status.isAuthorized() }
             .take(1)
             .asSingle()
@@ -41,17 +40,21 @@ extension CLLocationManager {
             .flatMap { isAuthorized in
                 let result: Single<CLLocationCoordinate2D>
                 if isAuthorized {
-                    result = Observable<CLLocationCoordinate2D>
-                        .merge(
-                            self.rx
-                                .didUpdateLocation
-                                .compactMap { locations in locations.first?.coordinate },
-                            self.rx
-                                .didFailWithError
-                                .map { error in throw error }
-                        )
-                        .take(1)
-                        .asSingle()
+                    if let coordinate = self.location?.coordinate {
+                        result = .just(coordinate)
+                    } else {
+                        result = Observable<CLLocationCoordinate2D>
+                            .merge(
+                                self.rx
+                                    .didUpdateLocation
+                                    .compactMap { locations in locations.first?.coordinate },
+                                self.rx
+                                    .didFailWithError
+                                    .map { error in throw error }
+                            )
+                            .take(1)
+                            .asSingle()
+                    }
                 } else {
                     let error = CLError(.denied)
                     result = .error(error)

@@ -15,6 +15,8 @@ protocol WeatherPresenterViewActions: AnyObject {
     func selectForecastIndex(_ index: Int)
 
     func tapOnCancelAtLocationDeniedAlert()
+    func tapOnOpenSettingsAtLocationDeniedAlert()
+
     func tapOnDeniedLocationServices()
     func tapOnLocationButton()
 
@@ -174,17 +176,17 @@ extension WeatherPresenter: WeatherPresenterViewActions {
         setDefaultWeatherLocationIfNil()
     }
 
+    func tapOnOpenSettingsAtLocationDeniedAlert() {
+        UIApplication.openSettings()
+        setDefaultWeatherLocationIfNil()
+    }
+
     func tapOnDeniedLocationServices() {
         UIApplication.openSettings()
     }
 
     func tapOnLocationButton() {
-        let isDenied = locationInteractor.isDenied.value
-        if isDenied {
-            view?.showLocationDeniedAlert()
-        } else {
-            requestLocation()
-        }
+        requestLocation()
     }
 
     func viewDidAppear() {
