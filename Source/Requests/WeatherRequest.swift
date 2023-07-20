@@ -20,7 +20,7 @@ extension Weather {
                     urlQuery: [
                         "lat": coordinate.lat,
                         "lon": coordinate.lon,
-                        "lang": "en_US",
+                        "lang": Self.forecastLanguageIdentifier,
                         "limit": 7,
                         "hours": true,
                         "extra": false
@@ -29,5 +29,16 @@ extension Weather {
             }
             return result
         }
+
+
     }
+}
+
+extension Weather.Request {
+    static let forecastLanguageIdentifier: String = {
+        let isRussian = Locale.current.languageCode == "ru"
+        return isRussian
+            ? "ru_RU"
+            : "en_US"
+    }()
 }

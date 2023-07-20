@@ -49,6 +49,7 @@
 		1A562CD12A695AB0009F87A8 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CD02A695AB0009F87A8 /* LocationView.swift */; };
 		1A562CD52A696495009F87A8 /* WeatherFactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CD42A696495009F87A8 /* WeatherFactDetailsView.swift */; };
 		1A562CD72A69649E009F87A8 /* WeatherFactDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A562CD62A69649E009F87A8 /* WeatherFactDetailsView.xib */; };
+		1A562CDB2A698E5F009F87A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A562CDD2A698E5F009F87A8 /* InfoPlist.strings */; };
 		1A5B22202A663FE800902BED /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5B221F2A663FE800902BED /* ActivityIndicatorView.swift */; };
 		1A5B22242A6645B400902BED /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5B22232A6645B400902BED /* CGRect+Extensions.swift */; };
 		1A5B222A2A6655CD00902BED /* IndicationViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5B22292A6655CD00902BED /* IndicationViewManager.swift */; };
@@ -189,6 +190,8 @@
 		1A562CD02A695AB0009F87A8 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		1A562CD42A696495009F87A8 /* WeatherFactDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFactDetailsView.swift; sourceTree = "<group>"; };
 		1A562CD62A69649E009F87A8 /* WeatherFactDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherFactDetailsView.xib; sourceTree = "<group>"; };
+		1A562CD82A698BC5009F87A8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A562CDC2A698E5F009F87A8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1A5B221F2A663FE800902BED /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		1A5B22232A6645B400902BED /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		1A5B22292A6655CD00902BED /* IndicationViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicationViewManager.swift; sourceTree = "<group>"; };
@@ -700,6 +703,7 @@
 				1A25388C2A5E1DAC00775FCD /* icons */,
 				1ABE62FA2A57DF45007E83AD /* Assets.xcassets */,
 				1A2AE8002A64DC6F00CE7473 /* Localizable.strings */,
+				1A562CDD2A698E5F009F87A8 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1091,6 +1095,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 1ABE62E52A57DF43007E83AD;
 			productRefGroup = 1ABE62EF2A57DF43007E83AD /* Products */;
@@ -1126,6 +1131,7 @@
 				1ABE62FB2A57DF45007E83AD /* Assets.xcassets in Resources */,
 				1ACE4A8B2A6792A900B0C503 /* WeatherBaseInfoTableCell.xib in Resources */,
 				1ACE4A952A6796D600B0C503 /* WeatherWindInfoView.xib in Resources */,
+				1A562CDB2A698E5F009F87A8 /* InfoPlist.strings in Resources */,
 				1AA751932A5C6C21005C4128 /* ConnectionStatusView.xib in Resources */,
 				1A2AE80A2A64E4A100CE7473 /* serverOffline.svg in Resources */,
 				1A2AE8072A64DFF800CE7473 /* connectionLost.svg in Resources */,
@@ -1322,8 +1328,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				1A2AE7FF2A64DC6F00CE7473 /* en */,
+				1A562CD82A698BC5009F87A8 /* ru */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1A562CDD2A698E5F009F87A8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A562CDC2A698E5F009F87A8 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		1ABE62FC2A57DF45007E83AD /* LaunchScreen.storyboard */ = {
@@ -1341,6 +1356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1401,6 +1417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

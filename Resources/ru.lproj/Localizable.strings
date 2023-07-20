@@ -1,0 +1,60 @@
+"Action.Cancel.Verb" = "Отмена";
+"Action.OpenSettings" = "Настройки";
+
+"LocationServices.Warning.Available" = "Службы геолокации доступны";
+"LocationServices.Warning.Denied" = "Службы геолокации недоступны";
+
+"MoonPhase.Text.FirstQuarter" = "первая четверть";
+"MoonPhase.Text.FullMoon" = "полнолуние";
+"MoonPhase.Text.LastQuarter" = "последняя четверть";
+"MoonPhase.Text.NewMoon" = "новолуние";
+"MoonPhase.Text.WaningMoon" = "убывающая луна";
+"MoonPhase.Text.WaxingCrescent" = "растущая луна";
+
+"NetworkConnection.Warning.Connected" = "Подключено";
+"NetworkConnection.Warning.Unavailable" = "Соединение с интернетом отсутствует";
+
+"PresentableError.ConnectionLost" = "Нет сетевого подключения.";
+"PresentableError.Decoding" = "Не удалось распарсить ответ.";
+"PresentableError.Encoding" = "Ошибка кодирования данных.";
+"PresentableError.ForbiddenRequest" = "Превышен суточный лимит запросов.";
+"PresentableError.ServerOffline" = "Обслуживание сервера.";
+"PresentableError.Unknown" = "Что-то пошло не так...";
+"PresentableError.WrongUrl" = "Неверный URL-адрес запроса.";
+
+"SvgRenderError.FailedRenderLocalSvg" = "Не удалось сгенерировать изображение для локального svg с именем \"\%@\".";
+"SvgRenderError.NotFoundRenderContainerView" = "Не удалось найти containerView для рендеринга svg-изображений.";
+
+"SvgResourceError.NotFoundIcon" = "Пожалуйста добавьте \"%@.svg\" в \"Resources/Icons\" папку проекта.";
+
+"Text.NoForecast" = "Прогноз отсутствует";
+"Text.Today" = "Сегодня";
+"Text.Tomorrow" = "Завтра";
+
+"Weather.BaseInfo.HeaderTitle.FeelsLike" = "Ощущается как";
+"Weather.BaseInfo.HeaderTitle.Pressure" = "мм рт.ст.";
+"Weather.BaseInfo.HeaderTitle.Temperature" = "Темп";
+
+"Weather.Forecast.Identificator.HalfDay.Title.Day" = "днем";
+"Weather.Forecast.Identificator.HalfDay.Title.Night" = "ночью";
+
+"Weather.Forecast.Identificator.QuarterDay.Title.Day" = "день";
+"Weather.Forecast.Identificator.QuarterDay.Title.Evening" = "вечер";
+"Weather.Forecast.Identificator.QuarterDay.Title.Morning" = "утро";
+"Weather.Forecast.Identificator.QuarterDay.Title.Night" = "ночь";
+
+"Weather.Forecast.Kind.DayHalfs" = "День / Ночь";
+"Weather.Forecast.Kind.DayQuarters" = "Времена суток";
+"Weather.Forecast.Kind.Hours" = "Почасовой";
+
+"WeatherController.Alert.LocationServicesDenied.Message" = "Для определения текущего местоположения, вам необходимо включить службы геолокации.";
+
+"Wind.Direction.Short.Calm" = "Ш";
+"Wind.Direction.Short.East" = "В";
+"Wind.Direction.Short.North" = "С";
+"Wind.Direction.Short.NorthEast" = "СВ";
+"Wind.Direction.Short.NorthWest" = "СЗ";
+"Wind.Direction.Short.South" = "Ю";
+"Wind.Direction.Short.SouthEast" = "ЮВ";
+"Wind.Direction.Short.SouthWest" = "ЮЗ";
+"Wind.Direction.Short.West" = "З";
